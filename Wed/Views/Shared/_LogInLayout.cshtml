@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link type="image/x-icon" rel="shortcut icon" href="~/favicon.ico" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+        <link type="image/x-icon" rel="icon" href="~/favicon.ico" />
+    </environment>
+</head>
+<body>
+    <img alt="" src="~/images/bg/kuznica-molot-nakovalnya-1920.jpg" />
+    <div class="shadow"></div>
+    <nav>
+        <div>LOGO</div>
+        <div><h1></h1></div>
+        <div>ABOUT</div>
+    </nav>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; "ЯМастер" - все права защищены @DateTime.Today.Year</p>
+    </footer>
+</body>
+</html>
