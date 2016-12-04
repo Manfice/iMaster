@@ -82,7 +82,7 @@ namespace Web
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("iMaster"));
             }
             return manager;
         }

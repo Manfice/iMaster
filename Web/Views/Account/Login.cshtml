@@ -3,58 +3,37 @@
 @{
     ViewBag.Title = "Log in";
 }
+<div class="shadow"></div>
+<img alt="" src="/Content/img/backgrounds/kuznica-molot-nakovalnya-1920.jpg"/>
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
+
+<div class="loginFormWrapper">
+    <div class="moitext">
+        <h1>ЯМастер</h1>
+        <h3>Клуб талантливых и предприимчивых льдей.</h3>
+        <h3>Сотни товаров и услуг мастера своего дела предлаганют каждый день.</h3>
+        <h2>Смотри, Выбирай, Предлагай</h2>        
     </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
+    <div class="loginForm">
+        <h3>Вход</h3>
+        @using (Html.BeginForm())
+        {
+            @Html.TextBoxFor(model => model.Email, new {placeholder = "E-mail"})
+            @Html.PasswordFor(model => model.Password, new {placeholder = "Пароль"})
+            <div class="formButtonBlock">
+                <button type="button">Войти</button>
+                <button type="button">Регистрация</button>
+            </div>
+        }
+        <p>или используйте свой аккаунт</p>
+        <div class="socBlock">
+            <a href="#"><img alt="" src="/Content/img/soclogos/f64.png"/></a>
+            <a href="#"><img alt="" src="/Content/img/soclogos/g64.png"/></a>
+            <a href="#"><img alt="" src="/Content/img/soclogos/v64.png"/></a>
+            <a href="#"><img alt="" src="/Content/img/soclogos/o.png"/></a>
+            <a href="#"><img alt="" src="/Content/img/soclogos/i64.png"/></a>
+            <a href="#"><img alt="" src="/Content/img/soclogos/t64.png"/></a>
+        </div>
     </div>
 </div>
 
