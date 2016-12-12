@@ -1,5 +1,16 @@
-﻿<header>
-    <h2></h2>
-    <h1>клуб мастеров своего дела</h1>
-    <h2></h2>
-</header>
+﻿@using Microsoft.AspNet.Identity.Owin;
+ 
+@if (User.Identity.IsAuthenticated)
+{
+    <header>
+        <ul>
+            <li>@User.Identity.AuthenticationType</li>/
+            <li>2</li>/
+            <li>3</li>
+        </ul>
+        <h2></h2>
+        <h2>
+            @Html.ActionLink("Выход", "LogOff", "Account")
+        </h2>
+    </header>
+}

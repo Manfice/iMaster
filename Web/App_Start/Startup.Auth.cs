@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Net.Http;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Web.Models;
@@ -18,6 +23,7 @@ namespace Web
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
@@ -33,7 +39,10 @@ namespace Web
                     OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-                }
+                },
+                ExpireTimeSpan = TimeSpan.FromDays(2),
+                SlidingExpiration = true
+                
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
@@ -54,11 +63,44 @@ namespace Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            var fbOptions = new FacebookAuthenticationOptions
+            {
+                AuthenticationMode = AuthenticationMode.Passive,
+                CallbackPath = new PathString("/FbLoginCallback"),
+                AppId = "1529850407031049",
+                AppSecret = "b8fdb276d60f5ec2fcfa4deab48a3cfc",
+                Caption = "iMaster",
+                AuthenticationType = "Facebook",
+                Provider = new FacebookAuthenticationProvider
+                {
+                    OnAuthenticated = context =>
+                    {
+                        context.Identity.AddClaim(new Claim("FacebookAccessToken", context.AccessToken, "Facebook"));
+                        return Task.FromResult(0);
+                    } 
+                },
+                Scope = {"email", "user_friends"},
+                BackchannelTimeout = TimeSpan.FromSeconds(60),
+                SignInAsAuthenticationType = app.GetDefaultSignInAsAuthenticationType(),
+                 
+            };
+            app.UseFacebookAuthentication(fbOptions);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            var googleOptions = new GoogleOAuth2AuthenticationOptions
+            {
+                AuthenticationMode = AuthenticationMode.Passive,
+                AuthenticationType = "Google",
+                ClientId = "205784610999-tdgrkpqapebosucomstkbov1tm0n0dca.apps.googleusercontent.com",
+                ClientSecret = "Hq0T7u0EkekuziBYz7mlmPMY",
+                CallbackPath = new PathString("/GoogleOAuthcallback"),
+                SignInAsAuthenticationType = app.GetDefaultSignInAsAuthenticationType(),
+                BackchannelTimeout = TimeSpan.FromSeconds(60),
+                BackchannelHttpHandler = new WebRequestHandler(),
+                BackchannelCertificateValidator = null,
+                Provider = new GoogleOAuth2AuthenticationProvider()
+            };
+            app.UseGoogleAuthentication(googleOptions);
             //{
             //    ClientId = "",
             //    ClientSecret = ""

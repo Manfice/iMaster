@@ -16,23 +16,29 @@
     </div>
     <div class="loginForm">
         <h3>Вход</h3>
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Login","Account", FormMethod.Post))
         {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false)
             @Html.TextBoxFor(model => model.Email, new {placeholder = "E-mail"})
             @Html.PasswordFor(model => model.Password, new {placeholder = "Пароль"})
             <div class="formButtonBlock">
-                <button type="button">Войти</button>
+                <button type="submit">Войти</button>
                 <button type="button">Регистрация</button>
             </div>
         }
         <p>или используйте свой аккаунт</p>
         <div class="socBlock">
-            <a href="#"><img alt="" src="/Content/img/soclogos/f64.png"/></a>
-            <a href="#"><img alt="" src="/Content/img/soclogos/g64.png"/></a>
-            <a href="#"><img alt="" src="/Content/img/soclogos/v64.png"/></a>
-            <a href="#"><img alt="" src="/Content/img/soclogos/o.png"/></a>
-            <a href="#"><img alt="" src="/Content/img/soclogos/i64.png"/></a>
-            <a href="#"><img alt="" src="/Content/img/soclogos/t64.png"/></a>
+            @using (Html.BeginForm("ExternalLogin", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" id="facebook" name="provider" value="Facebook"><img alt="" src="/Content/img/soclogos/f64.png" /></button>
+                <button type="submit" id="google" name="provider" value="Google"><img alt="" src="/Content/img/soclogos/g64.png" /></button>
+                <button type="submit" id="vkontacte" name="provider" value="Vkontakte"><img alt="" src="/Content/img/soclogos/v64.png" /></button>
+                <button type="submit" id="odnoklassniki" name="provider" value="Odnoklassniki"><img alt="" src="/Content/img/soclogos/o.png" /></button>
+                <button type="submit" id="instagram" name="provider" value="Instagram"><img alt="" src="/Content/img/soclogos/i64.png" /></button>
+                <button type="submit" id="twitter" name="provider" value="Twitter"><img alt="" src="/Content/img/soclogos/t64.png" /></button>
+            }
         </div>
     </div>
 </div>

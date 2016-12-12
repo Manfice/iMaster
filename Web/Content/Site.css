@@ -1,12 +1,36 @@
-﻿html {
+﻿* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
     height: 100%;
 }
-h1,h2,h3,h4,h4,h6,p {
+h1,h2,h3,h4,h4,h6,p,address {
     display: block;
     margin: 0;
     padding: 0;
     font-size: inherit;
     font-family: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a,button, button:focus, button:active {
+    color: inherit;
+    outline: 0 none;
+    border: none;
+    background: transparent;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
 }
 body {
     padding-top: 0;
@@ -20,6 +44,20 @@ body {
     z-index: 0;
     position: relative;
     font-style: italic;
+}
+.insetshadow {
+    color: #202020;
+    text-shadow: 
+      -1px -1px 1px gray, 
+      1px 1px 1px darkgray;
+    color: whitesmoke;
+}
+.hit-the-floor {
+color: #fff;
+font-size: 1em;
+font-weight: bold;
+font-family: Helvetica;
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
 }
 .shadow {
     position: absolute;
@@ -49,6 +87,13 @@ header,footer {
     padding: 0 10px;
     z-index: 10;
     color: whitesmoke;
+}
+header {
+    background:linear-gradient(0deg, rgba(0, 153, 212, 0.6), #73c8ff)
+}
+header ul {
+    display: flex;
+
 }
 header h1 {
     text-transform: uppercase;
@@ -143,13 +188,14 @@ textarea {
     background-color: transparent;
     font-size: 20pt;
 }
-.socBlock {
+.socBlock > form {
     display: flex;
-    align-items: center;
+    flex-flow: row nowrap;
+    width: 100%;
     justify-content: space-between;
-    padding: 10px 0 0 0;
+    padding: 5px 0;
 }
-.socBlock a img {
+.socBlock form button img {
     width: 32px;
 }
 input {
@@ -165,4 +211,106 @@ input {
     color: gray;
     font-weight: 600;
     font-style: italic;
+}
+/*Vitrina*/
+.present {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 0 70px;
+}
+.itemWrapper280x490 {
+    width: 280px;
+    height: 490px;
+    margin: 10px 5px;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 2px 5px 3px lightgray;
+}
+.item-scale {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border: solid 1px gray;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+}
+.itemWrapper280x490:hover {
+    border: none;
+}
+.itemWrapper280x490:hover .item-scale {
+    height: 120%;
+    width: 150%;
+    z-index: 3;
+    background-color: #f0f8ff;
+    box-shadow: 0 7px 10px 3px lightgrey;
+    transition: all .5s;
+}
+.imageWrapper {
+    width: 100%;
+    overflow: hidden;
+}
+.about-master {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: whitesmoke;
+    border-bottom: solid 2px lightblue;
+    width: 100%;
+    padding: 3px 10px;
+}
+.master-contacts {
+    overflow: hidden;
+    margin-right: 5px;
+}
+.about-master:hover .master-contacts address {
+    display: block;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.master-contacts h2 {
+    font-weight: 800;
+}
+.master-contacts h3 {
+    font-weight: 200;
+}
+.master-contacts address {
+    font-size: 10pt;
+    white-space: nowrap;
+    display: none;
+}
+.master-photoWrapper {
+    flex: 0 0 30%;
+    max-width: 30%;
+    position: relative;
+}
+.master-photoWrapper img {
+    position: absolute;
+    bottom: 0;
+}
+.shot-descr {
+    text-align: justify;
+    padding: 0 10px;
+    flex: 1 0 auto;
+}
+.item-controls {
+    height: 25px;
+    width: 100%;
+    background-color: lightblue;
+    border-top: solid 2px lightgreen;
 }
