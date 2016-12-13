@@ -25,7 +25,11 @@
         }, this),
         user: {
             userName: ko.observable(),
-
+            address: {
+                country: ko.observable(),
+                city: ko.observable()
+            },
+            contacts:ko.observableArray([])
         }
     };
 

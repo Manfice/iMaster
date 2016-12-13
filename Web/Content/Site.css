@@ -355,28 +355,21 @@ input {
     border: solid 2px;
 }
 .wizardItem {
-    border: solid 1px red;
-    
-}
-.inputItem {
-    max-width: 270px;
-    text-align: left;
-    margin: 10px;
-}
-.inputItem h2 {
-    font-size: 12pt;
-    font-weight: 600;
-}
-.inputItem i {
-    color: black;
-    position: absolute;
+    /*border: solid 1px red;*/
 }
 .wizardItem h1{
     font-size: 24pt;
     font-weight: 800;
 }
+.wizardItem h2 {
+    font-size: 16pt;
+}
 .wizardItem h3 {
     font-size: 18pt;
+}
+.wizardItem p {
+    max-width: 70%;
+    text-align: center;
 }
 .wizardControls {
     width: 100%;

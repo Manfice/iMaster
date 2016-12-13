@@ -8,32 +8,27 @@
 
 <div class="registerCarouselWrapper" id="wizard">
     <div class="carouselBlock">
-        <div class="columnFlexCenter wizardItem" data-bind="if:currentStep()==1">
-            <h1>ПРИВЕТ</h1>
+        <div class="columnFlexCenter wizardItem" style="display: none" data-bind="visible:currentStep()==1">
+            <h1>ПРИВЕТ !</h1>
             <h3>давай знакомиться</h3>
-            <h2> * * * * *</h2>
-            <div class="rowFlex">
-                <div class="inputItem">
-                    <h2>Как к тебе обращаться?</h2>
-               @*     <p>Укажи имя/ник/фио как удобно. <br />Главное помни, что людям приятно иметь дело с людьми чьи имена вроде "Галина" или "Владимир Владимирович", нежели "sAtAn666mega_sex"</p>*@
-                    <input data-bind="value:user.userName" />
-                </div>
-                <div class="inputItem">
-                    <h2>Как к тебе обращаться?</h2>
-               @*     <p>Укажи имя/ник/фио как удобно. <br />Главное помни, что людям приятно иметь дело с людьми чьи имена вроде "Галина" или "Владимир Владимирович", нежели "sAtAn666mega_sex"</p>*@
-                    <input data-bind="value:user.userName"/>
-                    <i class="glyphicon glyphicon-chevron-up"></i>
-                </div>
+            <hr/>
+                <h2>Как к тебе обращаться?</h2>
+                <input data-bind="value:user.userName" />
+                <p>Укажи имя/ник/фио как удобно. Главное помни, что людям приятно иметь дело с людьми чьи имена вроде "Галина" или "Владимир Владимирович", нежели "sAtAn666mega_sex"</p>
+        </div>
 
+        <div class="columnFlexCenter wizardItem" style="display: none"  data-bind="visible:currentStep()==2">
+            <h1><span data-bind="text:user.userName"></span>, расскажи о себе</h1>
+            <h3>где тебя искать</h3>
+            <hr />
+            <div class="inputWrapper">
+                <h3>Меня можно найти</h3>
+                <input data-bind="value:user.address.country" placeholder="Страна" />
+                <input data-bind="value:user.address.city" placeholder="Город"/>
             </div>
         </div>
 
-        <div class="columnFlexCenter wizardItem" data-bind="if:currentStep()==2">
-            <h1>РАССКАЖИ О СЕБЕ</h1>
-            <h3>ты кто по жизни =)</h3>
-        </div>
-
-        <div class="columnFlexCenter wizardItem" data-bind="if:currentStep()==3">
+        <div class="columnFlexCenter wizardItem" style="display: none"  data-bind="visible:currentStep()==3">
             <p>Third step</p>
         </div>
 
