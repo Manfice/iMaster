@@ -24,7 +24,7 @@
             @Html.PasswordFor(model => model.Password, new {placeholder = "Пароль"})
             <div class="formButtonBlock">
                 <button type="submit">Войти</button>
-                <button type="button">Регистрация</button>
+                <a href="@Url.Action("Register","Account")">Регистрация</a>
             </div>
         }
         <p>или используйте свой аккаунт</p>
