@@ -12,24 +12,41 @@
             <h1>ПРИВЕТ !</h1>
             <h3>давай знакомиться</h3>
             <hr/>
+            <div class="inputWrapper">
                 <h2>Как к тебе обращаться?</h2>
-                <input data-bind="value:user.userName" />
+                <input type="text" data-bind="value:user.userName" />
+            </div>
                 <p>Укажи имя/ник/фио как удобно. Главное помни, что людям приятно иметь дело с людьми чьи имена вроде "Галина" или "Владимир Владимирович", нежели "sAtAn666mega_sex"</p>
         </div>
 
         <div class="columnFlexCenter wizardItem" style="display: none"  data-bind="visible:currentStep()==2">
             <h1><span data-bind="text:user.userName"></span>, расскажи о себе</h1>
-            <h3>где тебя искать</h3>
             <hr />
             <div class="inputWrapper">
-                <h3>Меня можно найти</h3>
-                <input data-bind="value:user.address.country" placeholder="Страна" />
-                <input data-bind="value:user.address.city" placeholder="Город"/>
+                <h3>Укажи свой эл. адрес:</h3>
+                <div class="inputRow">
+                    <input data-bind="value: user.Email" name="email" placeholder="E-mail" type="email" />
+                </div>
+            </div>
+            <div class="inputWrapper">
+                <h3>Откуда ты?</h3>
+                <div class="inputRow">
+                    <input data-bind="value: user.address.country" name="country" placeholder="Страна" type="text" />
+                    <input data-bind="value: user.address.city" name="city" placeholder="Город" type="text" />
+                </div>
             </div>
         </div>
 
         <div class="columnFlexCenter wizardItem" style="display: none"  data-bind="visible:currentStep()==3">
-            <p>Third step</p>
+            <h1><span data-bind="text:user.userName"></span>, установи пароль и все.</h1>
+            <hr/>
+            <div class="inputWrapper">
+                <h3>от 6 символом.</h3>
+                <div class="inputRow">
+                    <input data-bind="value: user.password" name="password" placeholder="Пароль" type="password" />
+                    <input data-bind="value: user.confirmPassword" name="confirm" placeholder="Подтверждение" type="password" />
+                </div>
+            </div>
         </div>
 
         <div class="rowFlex wizardControls">

@@ -257,6 +257,7 @@
     <Content Include="Content\img\soclogos\o.png" />
     <Content Include="Content\img\soclogos\t64.png" />
     <Content Include="Content\img\soclogos\v64.png" />
+    <Content Include="Content\Views\GoodsAll.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

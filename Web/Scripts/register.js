@@ -24,9 +24,12 @@
             return model.currentStep() === 1;
         }, this),
         user: {
-            userName: ko.observable(),
+            userName: ko.observable("Valdemar"),
+            Email: ko.observable(),
+            password: ko.observable(),
+            confirmPassword: ko.observable(),
             address: {
-                country: ko.observable(),
+                country: ko.observable("Россия"),
                 city: ko.observable()
             },
             contacts:ko.observableArray([])

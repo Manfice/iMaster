@@ -1,0 +1,77 @@
+﻿.flexRowSpBetCenter {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; 
+}
+.present {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+.itemWrapper {
+    width: 250px;
+    height: 250px;
+    border: solid 1px;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px;
+}
+.controlsWrapper {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50px;
+    padding: 3px;
+}
+.logoWrapper {
+    flex: 0 0 auto;
+    width: 45px;
+}
+.logoWrapper img {
+    width: 100%;
+}
+.imageWrapper {
+    flex: 1 1 auto;
+    width: 100%;
+    border-bottom: solid 1px lightblue;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.imageWrapper img {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.imageWrapper:hover {
+    overflow: visible;
+    z-index: 2;
+}
+.imageWrapper:hover img {
+    animation: showImage 1s;
+    box-shadow: 0 5px 5px gray;
+    transform: scale(1.2);
+}
+@keyframes showImage {
+    from {
+        transform: scale(1);
+        box-shadow: 0 0 0 lightgray;
+    }
+    to {
+        transform: scale(1.2);
+        box-shadow: 0 5px 5px gray;
+    }
+}
+.socialActivity {
+    height: 50px;
+    flex: 0 0 auto;
+}

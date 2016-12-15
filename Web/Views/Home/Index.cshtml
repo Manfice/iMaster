@@ -2,41 +2,24 @@
     ViewBag.Title = $"Hello - {User.Identity.Name}";
 }
 
+@section link{
+<link href="~/Content/Views/GoodsAll.css" rel="stylesheet" />
+}
+
 <div class="present">
-    @for (var item = 0; item < 500; item++)
+    @for (var item = 0; item < 100; item++)
     {
-        <div class="itemWrapper280x490">
-            <div class="item-scale">
-                <div class="imageWrapper">
-                    <img alt="" src="/Content/img/600x468.jpg"/>
-                </div>
-                <div class="about-master">
-
-                    <div class="master-contacts">
-                        <h2>Petr Povazhniy</h2>
-                        <h3>Я программист</h3>
-                        <address>
-                            <p><span>E-mail:</span>oleg.romanov@yandex.ru
-                            </p>
-                            <p><span>Phone:</span>(988)767-66-99
-                            </p>
-                        </address>
-                    </div>
-
-                    <div class="master-photoWrapper">
-                        <img alt="" src="/Content/img/meneger.png"/>
-                    </div>
-
-                </div>
-                <div class="shot-descr">
-                    <h3>Описание / офер:</h3>
-                    <p>
-                        Реальные вещи не начинают двигаться мгновенно и с постоянной скоростью. Если мы открываем ящик стола, то сначала ускоряем его, а на второй половине пути — тормозим. Если что-то упало, то оно сначала летит всё быстрее и быстрее, а ударившись о пол — слегка подпрыгивает обратно.
-                    </p>
-                </div>
-                <div class="item-controls">
-                    
-                </div>
+        <div class="itemWrapper">
+            <div class="flexRowSpBetCenter controlsWrapper">
+                <p>5000</p>
+            </div>
+            <div class="imageWrapper">
+                <img alt="" src="/Content/img/600x468.jpg"/>
+            </div>
+            <div class="flexRowSpBetCenter socialActivity">
+                <div class="logoWrapper">
+                    <img alt="" src="/Content/img/meneger.png" />
+                </div>                
             </div>
         </div>
     }

@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Domen.Models;
 
 namespace Domen.infrastructure
 {
@@ -8,5 +9,12 @@ namespace Domen.infrastructure
         {
         }
 
+        public static Context Create()
+        {
+            return new Context();
+        }
+
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

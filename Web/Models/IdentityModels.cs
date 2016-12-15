@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Domen.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -16,6 +17,9 @@ namespace Web.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string Nickname { get; set; }
+        public virtual Member Member { get; set; }
     }
 
     public class ApplicationRole : IdentityRole
@@ -30,6 +34,7 @@ namespace Web.Models
         public ApplicationDbContext()
             : base("iMaster")
         {
+            //Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
