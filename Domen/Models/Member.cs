@@ -6,6 +6,7 @@ namespace Domen.Models
     {
         public int Id { get; set; }
         public string PersonName { get; set; }
+        public virtual Avatar Avatar { get; set; }
         public virtual ICollection<Contact> MemberContacts { get; set; }
     }
 
@@ -14,5 +15,12 @@ namespace Domen.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
+    }
+
+    public class Avatar
+    {
+        public int Id { get; set; }
+        public string Path { get; set; }
+        public string FullPath { get; set; }
     }
 }

@@ -68,8 +68,7 @@ body {
 .rowFlex {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: baseline;
+    align-items: center;
 }
 .hit-the-floor {
     color: #fff;
@@ -109,18 +108,6 @@ header,footer {
     z-index: 10;
     color: whitesmoke;
 }
-header {
-    background:linear-gradient(0, rgba(0, 153, 212, 0.6), #73c8ff)
-}
-header ul {
-    display: flex;
-
-}
-header h1 {
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 18pt;
-}
 
 footer p {
     font-size: 10pt;
@@ -150,7 +137,26 @@ input,
 select,
 textarea {
 }
+/*Header*/
+header {
+    background:linear-gradient(0, rgba(0, 153, 212, 0.6), #73c8ff)
+}
+header ul {
+    display: flex;
+}
+.memberMenu {
+    justify-content: space-between;
+    padding: 0 5px;
+    width: 300px;
+    border-right: solid 2px white
+}
+header h1 {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18pt;
+}
 
+/*Header END*/
 .loginFormWrapper {
     flex: 1 1 auto;
     width: 100%;
@@ -234,3 +240,34 @@ input {
     font-weight: 600;
     font-style: italic;
 }
+.headerImageWrapper {
+    overflow: hidden;
+}
+.headerImageWrapper img {
+    width: 100%;
+}
+/*Personal data dropdown menu*/
+#personData {
+    position: relative;
+}
+.dropDownPersonal {
+    width: 100%;
+    background-color: lightcoral;
+    position: absolute;
+    left: 0;
+    top: 27px;
+    height: 300px;
+    width: 298px;
+    background: url("/Content/img/myFone.jpg") repeat 0 0;
+}
+.myLogo {
+    flex: 0 0 auto;
+    width: 80%;
+    margin-top: 25px;
+}
+.myLogo img {
+    border: solid 3px white;
+    border-radius: 50%;
+    padding: 3px;
+}
+/*Personal data dropdown menu END*/

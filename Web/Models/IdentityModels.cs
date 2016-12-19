@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Domen.Models;
@@ -18,8 +19,15 @@ namespace Web.Models
             return userIdentity;
         }
 
+        public ApplicationUser()
+        {
+            CreateDate = DateTime.Now;
+            Member = new Member();
+        }
+
         public string Nickname { get; set; }
-        public virtual Member Member { get; set; }
+        public Member Member { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 
     public class ApplicationRole : IdentityRole
@@ -34,7 +42,7 @@ namespace Web.Models
         public ApplicationDbContext()
             : base("iMaster")
         {
-            //Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            Database.SetInitializer(new NullDatabaseInitializer<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()

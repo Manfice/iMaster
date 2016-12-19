@@ -1,21 +1,38 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using Domen.Abstract;
+using Domen.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
 namespace Web.Controllers
 {
-    [Authorize]
-    public class HomeController : Controller
+    public class MemberController : Controller
     {
-        private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
-        public ActionResult Index()
+        private ApplicationSignInManager _signInManager;
+        private readonly IMember _member;
+        public MemberController(IMember member)
         {
-            return View();
+            _member = member;
         }
 
+        public ActionResult UserProfile()
+        {
+            var user = UserManager.FindByEmail(User.Identity.Name);
+            Member member = null;
+            if (user!=null)
+            {
+                member = _member.GetMemberById(user.Member.Id);
+            }
+            return PartialView(member);
+        }
 
+        // GET: Member
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         #region support
         public ApplicationSignInManager SignInManager

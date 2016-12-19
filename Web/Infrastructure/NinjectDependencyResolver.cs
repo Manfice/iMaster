@@ -43,7 +43,7 @@ namespace Web.Infrastructure
         }
         private static void AddBindings(IBindingRoot kernel)
         {
-            kernel.Bind<ICustomer>().To<DbCustomer>().InRequestScope();
+            kernel.Bind<IMember>().To<DbMember>().InRequestScope();
         }
     }
 }

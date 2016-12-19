@@ -7,6 +7,7 @@ namespace Domen.infrastructure
     {
         public Context():base("iMaster")
         {
+            Database.SetInitializer(new NullDatabaseInitializer<Context>());
         }
 
         public static Context Create()
@@ -16,5 +17,6 @@ namespace Domen.infrastructure
 
         public DbSet<Member> Members { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Avatar> Avatars { get; set; }
     }
 }

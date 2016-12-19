@@ -1,0 +1,25 @@
+﻿@model Domen.Models.Member
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li id="personData">
+        <div class="rowFlex memberMenu">
+            <p>Личный кабинет</p>
+            <p class="glyphicon glyphicon-chevron-down"></p>
+            <div class="columnFlexCenter dropDownPersonal">
+                @if (Model.Avatar != null)
+                {
+                    <div class="headerImageWrapper myLogo">
+                        <img alt="" src="/Content/img/meneger.png"/>
+                    </div>
+                }
+                else
+                {
+                    <div class="headerImageWrapper noAvatar">
+                        <div></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </li>
+}
