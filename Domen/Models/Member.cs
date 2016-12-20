@@ -6,8 +6,11 @@ namespace Domen.Models
     {
         public int Id { get; set; }
         public string PersonName { get; set; }
+        public string AboutMe { get; set; }
+        public string UserId { get; set; }
         public virtual Avatar Avatar { get; set; }
         public virtual ICollection<Contact> MemberContacts { get; set; }
+        public virtual Master Master { get; set; }
     }
 
     public class Contact

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using Domen.Abstract;
 using Domen.infrastructure;
@@ -27,6 +28,18 @@ namespace Domen.Repos
         public async Task<Member> GetMemberByIdAsync(int id)
         {
             return await _context.Members.FindAsync(id);
+        }
+
+        public Member GetMemberByUserId(string id)
+        {
+            return _context.Members.FirstOrDefault(m => m.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        public Task<Member> GetMemberByUserIdAsync(string id)
+        {
+            return
+                _context.Members.FirstOrDefaultAsync(
+                    member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
         }
 
         public Task<Member> UpdateMemberAsync(Member member)

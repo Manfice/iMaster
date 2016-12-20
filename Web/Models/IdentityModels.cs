@@ -22,11 +22,9 @@ namespace Web.Models
         public ApplicationUser()
         {
             CreateDate = DateTime.Now;
-            Member = new Member();
         }
 
         public string Nickname { get; set; }
-        public Member Member { get; set; }
         public DateTime CreateDate { get; set; }
     }
 
@@ -40,7 +38,7 @@ namespace Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("iMaster")
+            : base("iMasterIdentity")
         {
             Database.SetInitializer(new NullDatabaseInitializer<ApplicationDbContext>());
         }
@@ -49,5 +47,6 @@ namespace Web.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

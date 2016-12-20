@@ -6,21 +6,28 @@
 <link href="~/Content/Views/GoodsAll.css" rel="stylesheet" />
 }
 
-<div class="present">
-    @for (var item = 0; item < 100; item++)
-    {
-        <div class="itemWrapper">
-            <div class="flexRowSpBetCenter controlsWrapper">
-                <p>5000</p>
+<div class="container">
+    <div class="present">
+        @for (var item = 0; item < 100; item++)
+        {
+            <div class="itemWrapper">
+                <div class="flexRowSpBetCenter controlsWrapper">
+                    <p>5000</p>
+                </div>
+                <div class="imageWrapper">
+                    <img alt="" src="/Content/img/600x468.jpg" />
+                </div>
+                <div class="flexRowSpBetCenter socialActivity">
+                    <div class="logoWrapper">
+                        <img alt="" src="/Content/img/meneger.png" />
+                    </div>
+                </div>
             </div>
-            <div class="imageWrapper">
-                <img alt="" src="/Content/img/600x468.jpg"/>
-            </div>
-            <div class="flexRowSpBetCenter socialActivity">
-                <div class="logoWrapper">
-                    <img alt="" src="/Content/img/meneger.png" />
-                </div>                
-            </div>
-        </div>
-    }
+        }
+    </div>
 </div>
+<div class="present"></div>
+@section scripts
+{
+    <script src="/Scripts/home/YaMaps.js"></script>
+}

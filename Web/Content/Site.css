@@ -139,23 +139,23 @@ textarea {
 }
 /*Header*/
 header {
-    background:linear-gradient(0, rgba(0, 153, 212, 0.6), #73c8ff)
+    background:linear-gradient(47deg,rgb(80, 11, 80), #73c8ff)
 }
-header ul {
+header>ul {
     display: flex;
 }
 .memberMenu {
     justify-content: space-between;
-    padding: 0 5px;
-    width: 300px;
-    border-right: solid 2px white
+    width: 200px;
 }
 header h1 {
     text-transform: uppercase;
     font-weight: 800;
     font-size: 18pt;
 }
-
+header ul li {
+    padding: 0 15px;
+}
 /*Header END*/
 .loginFormWrapper {
     flex: 1 1 auto;
@@ -251,14 +251,12 @@ input {
     position: relative;
 }
 .dropDownPersonal {
-    width: 100%;
     background-color: lightcoral;
     position: absolute;
     left: 0;
-    top: 27px;
-    height: 300px;
-    width: 298px;
-    background: url("/Content/img/myFone.jpg") repeat 0 0;
+    transform: translateY(-349px);
+    background: rgb(80, 11, 80);
+    padding-bottom: 20px;
 }
 .myLogo {
     flex: 0 0 auto;
@@ -269,5 +267,26 @@ input {
     border: solid 3px white;
     border-radius: 50%;
     padding: 3px;
+}
+.noAvatar {
+    width: 150px;
+    height: 150px;
+    border: solid 3px white;
+    margin: 20px;
+    padding: 3px;
+    border-radius: 50%;
+}
+.whiteBg {
+    border-radius: 50%;
+    width: 138px;
+    height: 138px;
+    background-color: rgba(0, 0, 0, .7);
+    justify-content: center;
+}
+.dropDownPersonal>ul {
+    width: 100%;
+    border-top: dashed 1px white;
+    margin-top: 20px;
+    padding-top: 20px;
 }
 /*Personal data dropdown menu END*/

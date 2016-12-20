@@ -11,5 +11,7 @@ namespace Domen.Abstract
         Task<Member> DeleteMemberAsync(int id);
         Task<Member> GetMemberByIdAsync(int id);
         Member GetMemberById(int id);
+        Task<Member> GetMemberByUserIdAsync(string id);
+        Member GetMemberByUserId(string id);
     }
 }

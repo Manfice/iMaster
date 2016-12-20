@@ -1,5 +1,5 @@
-using System.Web;
-using System.Web.Configuration;
+using Domen.infrastructure;
+using Domen.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Web.Models;
@@ -11,7 +11,7 @@ namespace Web.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Web.Models.ApplicationDbContext>
     {
         public Configuration()
         {
@@ -21,8 +21,8 @@ namespace Web.Migrations
         protected override void Seed(ApplicationDbContext context)
         {
             var roleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(context)); //new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            var userManager  = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
-
+            var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+            
             if (!roleManager.RoleExists("Admin"))
             {
                 roleManager.Create(new ApplicationRole("Admin"));
@@ -34,14 +34,24 @@ namespace Web.Migrations
 
             var user = userManager.FindByName(userName);
             if (user != null) return;
-            var result = userManager.Create(new ApplicationUser {Email = mail, UserName = userName}, pass);
+            var result = userManager.Create(new ApplicationUser { Email = mail, UserName = userName,Nickname = "Manfice"}, pass);
             if (!result.Succeeded) return;
             user = userManager.FindByName(userName);
-            if (!userManager.IsInRole(user.Id,"Admin"))
+            using (var db = new Context())
+            {
+                var member = new Member
+                {
+                    UserId = user.Id,
+                    PersonName = user.Nickname
+                };
+                db.Members.Add(member);
+                db.SaveChanges();
+            }
+            if (!userManager.IsInRole(user.Id, "Admin"))
             {
                 userManager.AddToRole(user.Id, "Admin");
             }
-            
+
         }
     }
 }

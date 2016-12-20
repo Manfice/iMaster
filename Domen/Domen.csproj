@@ -54,6 +54,7 @@
     <Compile Include="infrastructure\Context.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Specialists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\DbCustomer.cs" />
     <Compile Include="Repos\DbMember.cs" />

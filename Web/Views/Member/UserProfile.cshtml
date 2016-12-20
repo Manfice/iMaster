@@ -4,8 +4,8 @@
 {
     <li id="personData">
         <div class="rowFlex memberMenu">
-            <p>Личный кабинет</p>
-            <p class="glyphicon glyphicon-chevron-down"></p>
+            <p>@User.Identity.Name</p>
+            <p id="personLabel" class="glyphicon glyphicon-chevron-down"></p>
             <div class="columnFlexCenter dropDownPersonal">
                 @if (Model.Avatar != null)
                 {
@@ -16,9 +16,20 @@
                 else
                 {
                     <div class="headerImageWrapper noAvatar">
-                        <div></div>
+                        <div class="whiteCircule">
+                            <div class="whiteBg columnFlexCenter">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </div>
+                        </div>
                     </div>
                 }
+                <h2>@Model.PersonName</h2>
+                <ul>
+                    <li><a href="@Url.Action("Master")">Моя страница</a></li>
+                    <li><a>Витрина</a></li>
+                    <li><a>Лента</a></li>
+                    <li><a>Настройки</a></li>
+                </ul>
             </div>
         </div>
     </li>
