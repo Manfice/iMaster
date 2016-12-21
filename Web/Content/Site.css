@@ -48,6 +48,7 @@ body {
     z-index: 0;
     position: relative;
     font-style: italic;
+    background: linear-gradient(47deg, rgb(80, 11, 80), #73c8ff) no-repeat fixed;
 }
 .insetshadow {
     color: #202020;
@@ -107,6 +108,7 @@ header,footer {
     padding: 0 10px;
     z-index: 10;
     color: whitesmoke;
+    background-color: rgba(0,0,0,0.7);
 }
 
 footer p {
@@ -125,6 +127,13 @@ footer p {
     justify-content: flex-start;
 }
 
+.flexfsRow {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -139,7 +148,6 @@ textarea {
 }
 /*Header*/
 header {
-    background:linear-gradient(47deg,rgb(80, 11, 80), #73c8ff)
 }
 header>ul {
     display: flex;

@@ -1,0 +1,41 @@
+﻿.ContentWrapper {
+    width: 100%;
+    min-height: 1300px;
+    position: relative;
+}
+.sideControls {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    background-color: rgba(0,0,0,0.7);
+    height: 100%;
+    color: white;
+}
+.sideControls div {
+    width: 100%;
+}
+.MasterTitle {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: dotted 1px white;
+}
+.MasterTitle h1 {
+    font-size: 18pt;
+    font-weight: 900;
+}
+.sideControls ul {
+    width: 100%;
+}
+.sideControls ul li a {
+    display: flex;
+    padding: 3px 10px;
+    align-items: center;
+}
+ul li {
+    display: block;
+    margin: 7px 0;
+}
+li a p {
+    display: block;
+    padding: 0 10px;
+}

@@ -248,6 +248,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\600x468.jpg" />
     <Content Include="Content\img\backgrounds\hexagon.png" />
     <Content Include="Content\img\backgrounds\kuznica-molot-nakovalnya-1920.jpg" />
@@ -260,6 +262,8 @@
     <Content Include="Content\img\soclogos\t64.png" />
     <Content Include="Content\img\soclogos\v64.png" />
     <Content Include="Content\Views\GoodsAll.css" />
+    <Content Include="Content\Views\Member.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -282,6 +286,11 @@
     <Content Include="fonts\RobotoCondensed-Light.ttf" />
     <Content Include="fonts\RobotoCondensed-LightItalic.ttf" />
     <Content Include="fonts\RobotoCondensed-Regular.ttf" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
