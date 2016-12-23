@@ -1,12 +1,12 @@
 ﻿(function () {
     var persVisible = false;
-    $("#personLabel").on("click", function(event) {
+    var geo;
+    $("#ddMenu").on("click", function (event) {
         var el = $(".dropDownPersonal");
         if (!persVisible) {
             $({ y: -176 }).animate({ y: 201 }, {
                 duration: 1000,
                 step: function(now) {
-                    console.log(now);
                     el.css("transform", "translateY(" + now + "px)");
                 }
             }, {
@@ -18,7 +18,6 @@
             $({ y: 201 }).animate({ y: -176 }, {
                 duration: 1000,
                 step: function (now) {
-                    console.log(now);
                     el.css("transform", "translateY(" + now + "px)");
                 }
             }, {
@@ -28,4 +27,21 @@
             persVisible = false;
         }
     });
+
+    ymaps.ready(function() {
+        ymaps.geolocation.get({
+            // Выставляем опцию для определения положения по ip
+            provider: 'yandex',
+            // Автоматически геокодируем полученный результат.
+            autoReverseGeocode: true
+        }).then(function (result) {
+            // Выведем в консоль данные, полученные в результате геокодирования объекта.
+            geo = result.geoObjects.get(0).properties.get('metaDataProperty');
+            if (geo) {
+                console.log(geo.GeocoderMetaData.text);
+                $("#myLoc").text(geo.GeocoderMetaData.text);
+            }
+        });
+    });
+
 })();

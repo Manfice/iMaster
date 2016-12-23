@@ -39,13 +39,17 @@ namespace Web.Migrations
             user = userManager.FindByName(userName);
             using (var db = new Context())
             {
-                var member = new Member
+                var dbMember = db.Members.Where(member1 => member1.UserId.Equals(user.Id)).ToList();
+                if (!dbMember.Any())
                 {
-                    UserId = user.Id,
-                    PersonName = user.Nickname
-                };
-                db.Members.Add(member);
-                db.SaveChanges();
+                    var member = new Member
+                    {
+                        UserId = user.Id,
+                        PersonName = user.Nickname
+                    };
+                    db.Members.Add(member);
+                    db.SaveChanges();
+                }
             }
             if (!userManager.IsInRole(user.Id, "Admin"))
             {

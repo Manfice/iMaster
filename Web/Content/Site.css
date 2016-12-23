@@ -142,13 +142,12 @@ footer p {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
-}
+}*/
 /*Header*/
-header {
-}
+
 header>ul {
     display: flex;
 }

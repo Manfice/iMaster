@@ -16,7 +16,7 @@
     </div>
     <div class="loginForm">
         <h3>Вход</h3>
-        @using (Html.BeginForm("Login","Account", FormMethod.Post))
+        @using (Html.BeginForm("Login", null, FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(false)

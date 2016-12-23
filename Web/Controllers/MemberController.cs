@@ -28,6 +28,10 @@ namespace Web.Controllers
             return PartialView(members);
         }
 
+        public ActionResult Dashboard()
+        {
+            return PartialView();
+        }
         // GET: Member
         //public ActionResult Index()
         //{

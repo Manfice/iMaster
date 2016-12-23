@@ -5,10 +5,11 @@
     <header>
         <ul>
             @Html.Action("UserProfile","Member")
+            <li><a href="@Url.Action("Index","Home")">Главная</a></li>
             <li>Избранное</li>
             <li>Сообщения</li>
         </ul>
-        <h2></h2>
+        <h2 id="myLoc"></h2>
         <h2>
             @Html.ActionLink("Выход", "LogOff", "Account")
         </h2>

@@ -1,10 +1,10 @@
 ﻿@model Domen.Models.Member
 
-@if (User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated && Model!=null)
 {
     <li id="personData">
         <div class="rowFlex memberMenu">
-            <p>@User.Identity.Name</p>
+            <p id="ddMenu">@User.Identity.Name</p>
             <div class="columnFlexCenter dropDownPersonal">
                 @if (Model.Avatar != null)
                 {
