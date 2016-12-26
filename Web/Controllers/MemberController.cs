@@ -30,7 +30,28 @@ namespace Web.Controllers
 
         public ActionResult Dashboard()
         {
-            return PartialView();
+            var members = _member.GetMemberByUserId(User.Identity.GetUserId());
+            return PartialView(members);
+        }
+        public ActionResult MyProfile()
+        {
+            var members = _member.GetMemberByUserId(User.Identity.GetUserId());
+            return PartialView(members);
+        }
+        public ActionResult MyBrands()
+        {
+            var members = _member.GetMemberByUserId(User.Identity.GetUserId());
+            return PartialView(members);
+        }
+        public ActionResult DeliveryTypes()
+        {
+            var members = _member.GetMemberByUserId(User.Identity.GetUserId());
+            return PartialView(members);
+        }
+        public ActionResult Goods()
+        {
+            var members = _member.GetMemberByUserId(User.Identity.GetUserId());
+            return PartialView(members);
         }
         // GET: Member
         //public ActionResult Index()

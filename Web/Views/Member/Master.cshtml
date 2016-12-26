@@ -16,31 +16,31 @@
         </div>
         <ul>
             <li>
-                <a href="/">
+                <a href="#" id="myProfile">
                     <i class="fa fa-2x fa-user"></i>
                     <p>Мои данные</p>
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="#" id="brand">
                     <i class="fa fa-2x fa-copyright"></i>
                     <p>Торговые знаки</p>
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="#" id="delivery">
                     <i class="fa fa-2x fa-map"></i>
                     <p>Условия доставки</p>
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="#" id="goods">
                     <i class="fa fa-2x fa-th"></i>
                     <p>Товары / услуги</p>
                 </a>
             </li>
             <li>
-                <a href="/">
+                <a href="#" id="orders">
                     <i class="fa fa-2x fa-shopping-basket"></i>
                     <p>Заказы</p>
                 </a>
@@ -49,11 +49,30 @@
         </ul>
     </div>
     <div class="contentBlock">
-        
+        <div class="contentData"></div>
     </div>
 </div>
 
 @section scripts
 {
     @*<script src="/Scripts/home/YaMaps.js"></script>*@
+    <script>
+        $(document).ready(function() {
+            $("#myProfile").on("click", function() {
+                $(".contentData").load('@Url.Action("MyProfile","Member")');
+            });
+            $("#brand").on("click", function () {
+                $(".contentData").load('@Url.Action("MyBrands","Member")');
+            });
+            $("#delivery").on("click", function () {
+                $(".contentData").load('@Url.Action("DeliveryTypes","Member")');
+            });
+            $("#goods").on("click", function () {
+                $(".contentData").load('@Url.Action("Goods","Member")');
+            });
+            $("#orders").on("click", function () {
+                $(".contentData").load('@Url.Action("Dashboard","Member")');
+            });
+        });
+    </script>
 }
