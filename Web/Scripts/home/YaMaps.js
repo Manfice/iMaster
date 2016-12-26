@@ -38,7 +38,6 @@
             // Выведем в консоль данные, полученные в результате геокодирования объекта.
             geo = result.geoObjects.get(0).properties.get('metaDataProperty');
             if (geo) {
-                console.log(geo.GeocoderMetaData.text);
                 $("#myLoc").text(geo.GeocoderMetaData.text);
             }
         });

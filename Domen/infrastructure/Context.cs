@@ -19,6 +19,7 @@ namespace Domen.infrastructure
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Avatar> Avatars { get; set; }
         public DbSet<Specialists> Specialists { get; set; }
-        public DbSet<Master> Masters { get; set; } 
+        public DbSet<Master> Masters { get; set; }
+
     }
 }

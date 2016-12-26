@@ -47,6 +47,5 @@ namespace Web.Models
         {
             return new ApplicationDbContext();
         }
-
     }
 }

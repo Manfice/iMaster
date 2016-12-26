@@ -297,14 +297,3 @@ input {
     padding-top: 20px;
 }
 /*Personal data dropdown menu END*/
-/*MEMBER */
-.contentBlock {
-    margin-left: 200px;
-    padding: 10px;
-    
-}
-.contentData {
-    border: solid 1px red;
-    background-color: rgba(10,10,10,.7);
-}
-/*MEMBER END*/

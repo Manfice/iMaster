@@ -1,3 +1,34 @@
-﻿<div>
-    Profile
+﻿<div class="myPanel">
+    <div class="myPanelHead">
+        <h2>Мои персональные данные</h2>
+    </div>
+    <div class="myPanelBody">
+        <div class="myPhotoAndDescr">
+            <div class="myPhoto">
+                <div class="emptyPhotoContainer">
+                    <div class="topPhotoBlock">
+                        
+                    </div>
+                    <div class="emptyPhotoDescr">
+                        <div class="drNdropfilehere">
+                            
+                        </div>
+                        <img alt=""/>
+                    </div>
+                    <div class="photoControls">
+                        <label>
+                            <span><i class="fa fa-2x fa-plus"></i></span>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="file" name="avatar" accept="image/x-png,image/jpeg,image/jpg" id="castAva"/>
+                                <button type="button">Загрузить</button>
+                            }
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="myPersonal"></div>
+        </div>
+    </div>
 </div>

@@ -39,3 +39,103 @@ li a p {
     display: block;
     padding: 0 10px;
 }
+/*MEMBER */
+.contentBlock {
+    margin-left: 200px;
+    padding: 10px;
+    
+}
+
+/*MEMBER END*/
+/*Panel view*/
+.myPanel {
+    border: solid 2px purple;
+    min-height: 50px;
+    display: flex;
+    flex-flow: column;
+    max-width: 970px;
+    width: 100%;
+    position: relative;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.myPanelHead {
+    background-color: purple;
+    padding: 20px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    flex: 0 0 auto;
+}
+.myPanelHead h2 {
+    font-size: 14pt;
+}
+.myPanelBody {
+    flex: 1 0 auto;
+    min-height: 50px;
+    background-color: snow;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.myPhoto {
+    flex: 0 0 auto;
+}
+.myPersonal {
+    flex: 1 0 auto;
+}
+.myPhotoAndDescr {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; 
+}
+.emptyPhotoContainer {
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+    border: solid 5px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.emptyPhotoContainer>div {
+    border: solid 1px gray;
+    width: 100%;
+}
+.topPhotoBlock {
+    flex: 0 0 auto;
+    height: 30px;
+}
+.emptyPhotoDescr {
+    flex: 1 0 auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+.photoControls {
+    flex: 0 0 auto;
+    height: 30px;
+    color: gray;
+}
+.photoControls label {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.photoControls input {
+    display: none;
+}
+.photoControls label button {
+    display: none;
+}
+.drNdropfilehere {
+    width: 100px;
+    height: 100px;
+    background: lightgrey;
+    border-radius: 50%;
+}
+/*Panel view END*/

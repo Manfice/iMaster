@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Domen.Models
 {
@@ -8,6 +9,9 @@ namespace Domen.Models
         public string PersonName { get; set; }
         public string AboutMe { get; set; }
         public string UserId { get; set; }
+        public DateTime Birthday { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
         public virtual Avatar Avatar { get; set; }
         public virtual ICollection<Contact> MemberContacts { get; set; }
         public virtual Master Master { get; set; }
