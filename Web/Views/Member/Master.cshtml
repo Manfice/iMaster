@@ -11,7 +11,7 @@
 <div class="ContentWrapper">
     <div class="sideControls columnFlexCenter">
         <div class="MasterTitle">
-            <h1>iMaster</h1>
+            <h1>ЯМастер</h1>
             <p>Панель управления</p>
         </div>
         <ul>
@@ -59,11 +59,17 @@
     <script>
         $(document).ready(function() {
             $("#myProfile").on("click", function() {
-                $(".contentData").load('@Url.Action("MyProfile","Member")');
+                $.get('@Url.Action("MyProfile","Member")').done(function (data) {
+                    $(".contentData").append(data);
+                });
             });
+
             $("#brand").on("click", function () {
-                $(".contentData").load('@Url.Action("MyBrands","Member")');
+                $.get('@Url.Action("MyBrands","Member")').done(function (data) {
+                    $(".contentData").append(data);
+                });
             });
+
             $("#delivery").on("click", function () {
                 $(".contentData").load('@Url.Action("DeliveryTypes","Member")');
             });
@@ -73,6 +79,11 @@
             $("#orders").on("click", function () {
                 $(".contentData").load('@Url.Action("Dashboard","Member")');
             });
+
+            function removeBlock() {
+                var el = this;
+                el.remove();
+            }
         });
     </script>
 }

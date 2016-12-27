@@ -42,8 +42,14 @@ li a p {
 /*MEMBER */
 .contentBlock {
     margin-left: 200px;
-    padding: 10px;
-    
+    padding: 10px;   
+}
+
+.contentData {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 /*MEMBER END*/
@@ -54,7 +60,6 @@ li a p {
     display: flex;
     flex-flow: column;
     max-width: 970px;
-    width: 100%;
     position: relative;
     -ms-border-radius: 5px;
     border-radius: 5px;
@@ -66,6 +71,9 @@ li a p {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .myPanelHead h2 {
     font-size: 14pt;
@@ -76,12 +84,20 @@ li a p {
     background-color: snow;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    color: darkslateblue
 }
 .myPhoto {
     flex: 0 0 auto;
 }
 .myPersonal {
     flex: 1 0 auto;
+    color: darkslateblue;
+    margin: 20px;
+    text-align: right;
+}
+.myPersonal h1 {
+    font-size: 16pt;
+
 }
 .myPhotoAndDescr {
     display: flex;
