@@ -15,6 +15,7 @@ namespace Domen.Models
         public virtual Avatar Avatar { get; set; }
         public virtual ICollection<Contact> MemberContacts { get; set; }
         public virtual Master Master { get; set; }
+        public virtual ICollection<Brand> Brands { get; set; }
     }
 
     public class Contact
@@ -29,5 +30,13 @@ namespace Domen.Models
         public int Id { get; set; }
         public string Path { get; set; }
         public string FullPath { get; set; }
+    }
+
+    public class Brand
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public virtual Avatar Avatar { get; set; }
+        public virtual Member Member { get; set; }
     }
 }

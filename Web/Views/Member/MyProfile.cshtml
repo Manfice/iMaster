@@ -4,9 +4,19 @@
     <div class="myPanel">
         <div class="myPanelHead">
             <h2>Мои персональные данные</h2>
-            <button type="button"><i class="fa fa-2x fa-close"></i></button>
+            <div class="headIcons">
+                <a data-info="_profile"><i class="fa fa-2x fa-question"></i></a>
+                <button type="button" data-close="" name="@(Model.UserId+"_profile")"><i class="fa fa-2x fa-close"></i></button>
+            </div>
         </div>
         <div class="myPanelBody">
+            <div class="blockInfo" data-info-toggle="_profile" style="display: none">
+                <article>
+                    <i class="fa fa-2x fa-exclamation"></i>
+                    Персональные данные - это ваша визитная карточка. На витрине, кликнув на портрет,
+                    пользователь увидит эту информацию и ваши контактакты.
+                </article>
+            </div>
             <div class="myPhotoAndDescr">
                 <div class="myPhoto">
                     <div class="emptyPhotoContainer">
@@ -17,15 +27,15 @@
                             <div class="drNdropfilehere">
 
                             </div>
-                            <img alt="" />
+                            <img alt=""/>
                         </div>
                         <div class="photoControls">
                             <label id="addMemberAvatar">
-                                <span><i class="fa fa-2x fa-plus"></i></span>
+                                <span title="Загрузить портрет"><i class="fa fa-2x fa-plus"></i></span>
                                 @using (Html.BeginForm())
                                 {
                                     @Html.AntiForgeryToken()
-                                    <input type="file" name="avatar" accept="image/x-png,image/jpeg,image/jpg" id="castAva" />
+                                    <input type="file" name="avatar" accept="image/x-png,image/jpeg,image/jpg" id="castAva"/>
                                     <button type="button">Загрузить</button>
                                 }
                             </label>
@@ -43,6 +53,19 @@
                     {
                         <h2>@Model.Country, @Model.City</h2>
                     }
+                    @if (Model.Master != null)
+                    {
+                        <a>
+                            <p>@Model.Master.Specialist.Title</p><span>></span><p>@Model.Master.Title</p></a>
+                    }
+                    else
+                    {
+                        <a>Укажите вашу специальность</a>
+                    }
+                    <article>
+                        @Model.AboutMe
+                    </article>
+                    <a class="btn btn-default btn-sm">Редактировать</a>
                 </div>
             </div>
         </div>

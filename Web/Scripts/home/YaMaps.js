@@ -28,10 +28,7 @@
         }
     });
 
-    function getLocation() {
-        if (ymaps) {
-            console.log("yaMaps");
-        }
+     ymaps.ready(function () {
         ymaps.geolocation.get({
             // Выставляем опцию для определения положения по ip
             provider: 'yandex',
@@ -41,9 +38,8 @@
             // Выведем в консоль данные, полученные в результате геокодирования объекта.
             geo = result.geoObjects.get(0).properties.get('metaDataProperty');
             if (geo) {
-                return geo.GeocoderMetaData.text;
+                $("#myLoc").text(geo.GeocoderMetaData.text);
             }
         });
-    };
-
+     });
 })();

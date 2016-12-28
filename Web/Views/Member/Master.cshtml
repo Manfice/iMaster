@@ -16,31 +16,31 @@
         </div>
         <ul>
             <li>
-                <a href="#" id="myProfile">
+                <a href="#" id="myProfile" data-name="_profile">
                     <i class="fa fa-2x fa-user"></i>
                     <p>Мои данные</p>
                 </a>
             </li>
             <li>
-                <a href="#" id="brand">
+                <a href="#" id="brand" data-name="_brand">
                     <i class="fa fa-2x fa-copyright"></i>
                     <p>Торговые знаки</p>
                 </a>
             </li>
             <li>
-                <a href="#" id="delivery">
+                <a href="#" id="delivery" data-name="_delivery">
                     <i class="fa fa-2x fa-map"></i>
                     <p>Условия доставки</p>
                 </a>
             </li>
             <li>
-                <a href="#" id="goods">
+                <a href="#" id="goods" data-name="_goods">
                     <i class="fa fa-2x fa-th"></i>
                     <p>Товары / услуги</p>
                 </a>
             </li>
             <li>
-                <a href="#" id="orders">
+                <a href="#" id="orders" data-name="_orders">
                     <i class="fa fa-2x fa-shopping-basket"></i>
                     <p>Заказы</p>
                 </a>
@@ -57,33 +57,65 @@
 {
     <script src="/Scripts/home/YaMaps.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#myProfile").on("click", function() {
-                $.get('@Url.Action("MyProfile","Member")').done(function (data) {
+        $(document).ready(function () {
+            var m = "@Model.UserId";
+
+            function removeBlockEvent(s) {
+                $(".contentData [data-close]").on("click", function (e) {
+                    var elName = e.currentTarget.name;
+                    var prEl = $("#" + elName);
+                    prEl.remove();
+                });
+                $("[data-info="+s+"]").on("click", function (e) {
+                    var el = $(this).data("info");
+                    $("div [data-info-toggle="+el+"]").fadeToggle(500);
+                });
+            };
+
+            function panelExist(ident) {
+                var e = $("#" + ident);
+                return e.length>0 ? true : false;
+            }
+
+
+
+
+            $("#myProfile").on("click", function (e) {
+                if (panelExist(m + e.currentTarget.attributes[2].nodeValue)) {
+                    return;
+                }
+                $.get('@Url.Action("MyProfile","Member")').done(function(data) {
                     $(".contentData").append(data);
+                    removeBlockEvent(e.currentTarget.attributes[2].nodeValue);
                 });
             });
 
-            $("#brand").on("click", function () {
+
+
+
+
+            $("#brand").on("click", function (e) {
+                if (panelExist(m + e.currentTarget.attributes[2].nodeValue)) {
+                    return;
+                }
                 $.get('@Url.Action("MyBrands","Member")').done(function (data) {
                     $(".contentData").append(data);
+                    removeBlockEvent(e.currentTarget.attributes[2].nodeValue);
                 });
             });
 
-            $("#delivery").on("click", function () {
+
+
+
+            $("#delivery").on("click", function (e) {
                 $(".contentData").load('@Url.Action("DeliveryTypes","Member")');
             });
-            $("#goods").on("click", function () {
+            $("#goods").on("click", function (e) {
                 $(".contentData").load('@Url.Action("Goods","Member")');
             });
-            $("#orders").on("click", function () {
+            $("#orders").on("click", function (e) {
                 $(".contentData").load('@Url.Action("Dashboard","Member")');
             });
-
-            function removeBlock() {
-                var el = this;
-                el.remove();
-            }
         });
     </script>
 }

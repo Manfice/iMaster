@@ -51,7 +51,9 @@ li a p {
     justify-content: flex-start;
     align-items: flex-start;
 }
-
+.contentData>div {
+    margin-right: 20px;
+}
 /*MEMBER END*/
 /*Panel view*/
 .myPanel {
@@ -75,6 +77,14 @@ li a p {
     justify-content: space-between;
     align-items: center;
 }
+.headIcons {
+    flex: 0 0 auto;
+    margin-left: 20px;
+    display: flex;
+}
+.headIcons i {
+    margin: 0 10px;
+}
 .myPanelHead h2 {
     font-size: 14pt;
 }
@@ -85,6 +95,13 @@ li a p {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     color: darkslateblue
+}
+.myPanelBody article {
+    max-width: 400px;
+    padding: 5px;
+}
+.myPanelBody article:first-letter {
+    margin-left: 20px;
 }
 .myPhoto {
     flex: 0 0 auto;
@@ -97,7 +114,6 @@ li a p {
 }
 .myPersonal h1 {
     font-size: 16pt;
-
 }
 .myPhotoAndDescr {
     display: flex;
@@ -153,5 +169,11 @@ li a p {
     height: 100px;
     background: lightgrey;
     border-radius: 50%;
+}
+.myPersonal a p {
+    display: inline;
+}
+.myPersonal a span {
+    padding: 5px;
 }
 /*Panel view END*/
