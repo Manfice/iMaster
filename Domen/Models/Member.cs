@@ -12,6 +12,8 @@ namespace Domen.Models
         public DateTime Birthday { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
         public virtual Avatar Avatar { get; set; }
         public virtual ICollection<Contact> MemberContacts { get; set; }
         public virtual Master Master { get; set; }

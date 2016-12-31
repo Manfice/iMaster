@@ -53,6 +53,13 @@ namespace Web.Controllers
             var members = _member.GetMemberByUserId(User.Identity.GetUserId());
             return PartialView(members);
         }
+
+        public ActionResult Settings()
+        {
+            var members = _member.GetMemberByUserId(User.Identity.GetUserId());
+
+            return View(members);
+        }
         // GET: Member
         //public ActionResult Index()
         //{

@@ -1,0 +1,32 @@
+﻿.myContainer {
+    max-width: 1200px;
+    background-color: #000000;
+    background-color: rgba(0,0,0,.7);
+    flex: 1 0 auto;
+    width: 100%;
+}
+.block {
+    flex: 0 0 auto;
+    width: 100%;
+    color: white;
+    padding: 20px;
+}
+.block h2 {
+    font-size: 20px;
+
+}
+.sett {
+    justify-content: space-around;
+    margin: 20px 0; 
+}
+.sett input {
+    width: 250px; 
+    margin: 0; 
+}
+.sett button{
+    font-weight: bold;
+    font-size: 20pt;
+}
+.sett button:hover {
+    color: rgba(255,255,255,.7);
+}

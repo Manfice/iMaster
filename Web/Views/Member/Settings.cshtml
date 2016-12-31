@@ -1,0 +1,62 @@
+﻿@model Domen.Models.Member
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section link
+{
+    <link href="~/Content/Views/settingsPage.css" rel="stylesheet"/>
+}
+
+<div class="columnFlexCenter myContainer" id="mSettings">
+    <div class="block">
+        <h2>Данные пользователя</h2>
+        <form data-bind="submit:submit">
+            <div class="flexfsRow sett">
+                <div>
+                    <label>Ник</label>
+                    <input type="text" data-bind="value:person.personInfo.nik" placeholder=""/>
+                </div>
+                <div>
+                    <label>ФИО</label>
+                    <input type="text" data-bind="value:person.personInfo.fio" placeholder=""/>
+                </div>
+                <div>
+                    <label>День рождения</label>
+                    <input type="text" data-bind="value:person.personInfo.birthday" placeholder=""/>
+                </div>
+            </div>
+            <h2>Контактная информация</h2>
+            <div class="flexfsRow sett">
+                <div>
+                    <label>E-mail</label>
+                    <input type="text" data-bind="value:person.personContacts.mail" placeholder=""/>
+                </div>
+                <div>
+                    <label>Телефон</label>
+                    <input type="text" data-bind="value:person.personContacts.phone" placeholder=""/>
+                </div>
+                <div>
+                    <label>Страна</label>
+                    <input type="text" data-bind="value:person.personContacts.country" placeholder=""/>
+                </div>
+                <div>
+                    <label>Город</label>
+                    <input type="text" data-bind="value:person.personContacts.city" placeholder=""/>
+                </div>
+
+            </div>
+            <div class="flexfsRow sett">
+                <button type="reset">Отмена</button>
+                <button type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+<script src="~/Scripts/member/memberSettings.js"></script>
+}

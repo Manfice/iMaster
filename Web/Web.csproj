@@ -268,6 +268,7 @@
     <Content Include="Content\img\soclogos\v64.png" />
     <Content Include="Content\Views\GoodsAll.css" />
     <Content Include="Content\Views\Member.css" />
+    <Content Include="Content\Views\settingsPage.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -313,6 +314,7 @@
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\knockout.punches.js" />
     <Content Include="Scripts\knockout.punches.min.js" />
+    <Content Include="Scripts\member\memberSettings.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\register.js" />
     <Content Include="Scripts\respond.js" />
@@ -362,6 +364,7 @@
     <Content Include="Views\Member\MyBrands.cshtml" />
     <Content Include="Views\Member\DeliveryTypes.cshtml" />
     <Content Include="Views\Member\Goods.cshtml" />
+    <Content Include="Views\Member\Settings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
