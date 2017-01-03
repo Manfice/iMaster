@@ -16,36 +16,38 @@
             <div class="flexfsRow sett">
                 <div>
                     <label>Ник</label>
-                    <input type="text" data-bind="value:person.personInfo.nik" placeholder=""/>
-                </div>
-                <div>
-                    <label>ФИО</label>
-                    <input type="text" data-bind="value:person.personInfo.fio" placeholder=""/>
+                    <input type="text" data-bind="value:person.personInfo.PersonName" placeholder=""/>
                 </div>
                 <div>
                     <label>День рождения</label>
-                    <input type="text" data-bind="value:person.personInfo.birthday" placeholder=""/>
+                    <input type="text" data-bind="value:person.personInfo.Birthday" placeholder=""/>
                 </div>
             </div>
             <h2>Контактная информация</h2>
             <div class="flexfsRow sett">
                 <div>
                     <label>E-mail</label>
-                    <input type="text" data-bind="value:person.personContacts.mail" placeholder=""/>
+                    <input type="text" data-bind="value:person.personContacts.Email" placeholder=""/>
                 </div>
                 <div>
                     <label>Телефон</label>
-                    <input type="text" data-bind="value:person.personContacts.phone" placeholder=""/>
+                    <input type="text" data-bind="value:person.personContacts.Phone" placeholder=""/>
                 </div>
                 <div>
                     <label>Страна</label>
-                    <input type="text" data-bind="value:person.personContacts.country" placeholder=""/>
+                    <input type="text" data-bind="value:person.personContacts.Country" placeholder=""/>
                 </div>
                 <div>
                     <label>Город</label>
-                    <input type="text" data-bind="value:person.personContacts.city" placeholder=""/>
+                    <input type="text" data-bind="value:person.personContacts.City" placeholder=""/>
                 </div>
 
+            </div>
+            <div class="flexfsRow sett">
+                <div>
+                    <label>Коротко о себе</label>
+                    <textarea data-bind="textInput:person.personInfo.AboutMe"></textarea>
+                </div>
             </div>
             <div class="flexfsRow sett">
                 <button type="reset">Отмена</button>
@@ -58,5 +60,5 @@
 @section scripts
 {
     <script src="~/Scripts/knockout-3.4.0.js"></script>
-<script src="~/Scripts/member/memberSettings.js"></script>
+    <script src="~/Scripts/member/memberSettings.js"></script>
 }

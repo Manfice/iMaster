@@ -12,7 +12,7 @@
     padding: 20px;
 }
 .block h2 {
-    font-size: 20px;
+    font-size: 20px; 
 
 }
 .sett {
@@ -29,4 +29,13 @@
 }
 .sett button:hover {
     color: rgba(255,255,255,.7);
+}
+.sett div textarea {
+    display: block;
+    width: 600px;
+    resize: vertical;
+    height: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    color: darkgrey;
 }

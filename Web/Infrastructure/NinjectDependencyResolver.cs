@@ -6,11 +6,10 @@ using Domen.Repos;
 using Ninject;
 using Ninject.Syntax;
 using Ninject.Web.Common;
-using IDependencyResolver = System.Web.Mvc.IDependencyResolver;
 
 namespace Web.Infrastructure
 {
-    public class NinjectDependencyResolver:System.Web.Http.Dependencies.IDependencyResolver, IDependencyResolver
+    public class NinjectDependencyResolver: System.Web.Mvc.IDependencyResolver, System.Web.Http.Dependencies.IDependencyResolver
     {
         private readonly IKernel _kernel;
 

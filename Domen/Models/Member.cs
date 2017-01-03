@@ -20,6 +20,19 @@ namespace Domen.Models
         public virtual ICollection<Brand> Brands { get; set; }
     }
 
+    public class SaveMemberPrimeData
+    {
+        public string PersonName { get; set; }
+        public string AboutMe { get; set; }
+        public string Birthday { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+
+    }
+
+
     public class Contact
     {
         public int Id { get; set; }
