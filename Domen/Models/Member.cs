@@ -9,7 +9,7 @@ namespace Domen.Models
         public string PersonName { get; set; }
         public string AboutMe { get; set; }
         public string UserId { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string Phone { get; set; }

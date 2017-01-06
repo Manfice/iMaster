@@ -6,11 +6,28 @@
 }
 @section link
 {
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/Views/Member.css" rel="stylesheet" />
 }
 <div class="ContentWrapper">
     <div class="sideControls columnFlexCenter">
         <div class="MasterTitle">
+            @if (Model.Avatar != null)
+            {
+                <div class="headerImageWrapper myLogo">
+                    <img alt="" src="/Content/img/meneger.png" />
+                </div>
+            }
+            else
+            {
+                <div class="headerImageWrapper noAvatar" data-name="_profile">
+                    <div class="whiteCircule">
+                        <div class="whiteBg columnFlexCenter">
+                            <span class="glyphicon glyphicon-plus" id="myAvatar"></span>
+                        </div>
+                    </div>
+                </div>
+            }
             <h1>ЯМастер</h1>
             <p>Панель управления</p>
         </div>
@@ -79,7 +96,6 @@
 
 
 
-
             $("#myProfile").on("click", function (e) {
                 if (panelExist(m + e.currentTarget.attributes[2].nodeValue)) {
                     return;
@@ -90,8 +106,15 @@
                 });
             });
 
-
-
+            $(".noAvatar").on("click", function (e) {
+                if (panelExist(m + e.currentTarget.attributes[1].nodeValue)) {
+                    return;
+                }
+                $.get('@Url.Action("MyProfile","Member")').done(function (data) {
+                    $(".contentData").append(data);
+                    removeBlockEvent(e.currentTarget.attributes[1].nodeValue);
+                });
+            });
 
 
             $("#brand").on("click", function (e) {

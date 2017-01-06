@@ -60,6 +60,7 @@ namespace Web.Controllers
 
             return View(members);
         }
+
         // GET: Member
         //public ActionResult Index()
         //{

@@ -11,7 +11,7 @@
     height: 100%;
     color: white;
 }
-.sideControls div {
+.sideControls>div {
     width: 100%;
 }
 .MasterTitle {

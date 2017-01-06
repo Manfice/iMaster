@@ -6,6 +6,8 @@
 
 @section link
 {
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/Views/settingsPage.css" rel="stylesheet"/>
 }
 
@@ -20,7 +22,7 @@
                 </div>
                 <div>
                     <label>День рождения</label>
-                    <input type="text" data-bind="value:person.personInfo.Birthday" placeholder=""/>
+                    <input type="text" id="dtpc" data-bind="value:person.personInfo.Birthday" placeholder=""/>
                 </div>
             </div>
             <h2>Контактная информация</h2>
@@ -59,6 +61,9 @@
 
 @section scripts
 {
+    <script src="~/Scripts/home/YaMaps.js"></script>
     <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/moment-with-locales.min.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
     <script src="~/Scripts/member/memberSettings.js"></script>
 }

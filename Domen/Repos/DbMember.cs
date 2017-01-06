@@ -42,9 +42,22 @@ namespace Domen.Repos
                     member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public Task<Member> UpdateMemberAsync(Member member)
+        public async Task<Member> UpdateMemberAsync(Member member)
         {
-            throw new NotImplementedException();
+            var db = await _context.Members.FirstOrDefaultAsync(member1 => member1.UserId==member.UserId);
+            if (db==null)
+            {
+                return null;
+            }
+            db.AboutMe = member.AboutMe;
+            db.PersonName = member.PersonName;
+            db.Birthday = member.Birthday;
+            db.City = member.City;
+            db.Country = member.Country;
+            db.Email = member.Email;
+            db.Phone = member.Phone;
+            await _context.SaveChangesAsync();
+            return db;
         }
     }
 }

@@ -110,7 +110,12 @@ header,footer {
     color: whitesmoke;
     background-color: rgba(0,0,0,0.7);
 }
-
+header ul li {
+    cursor: pointer;
+}
+header ul li p:hover, header ul li a:hover {
+    color: lightgreen; 
+}
 footer p {
     font-size: 10pt;
 }
@@ -283,12 +288,14 @@ input {
     padding: 3px;
     border-radius: 50%;
 }
+
 .whiteBg {
     border-radius: 50%;
     width: 138px;
     height: 138px;
     background-color: rgba(0, 0, 0, .7);
     justify-content: center;
+    cursor: pointer;
 }
 .dropDownPersonal>ul {
     width: 100%;
