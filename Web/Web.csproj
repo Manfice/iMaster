@@ -400,6 +400,7 @@
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\knockout.punches.js" />
     <Content Include="Scripts\knockout.punches.min.js" />
+    <Content Include="Scripts\master\MasterModel.js" />
     <Content Include="Scripts\member\MemberClient.js" />
     <Content Include="Scripts\member\memberSettings.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />

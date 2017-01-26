@@ -1,179 +1,89 @@
-﻿.ContentWrapper {
+﻿.masterpageWrapper {
     width: 100%;
-    min-height: 1300px;
+    background-color: gray;
+    flex: 1 0 auto;
+    height: 50px;
     position: relative;
-}
-.sideControls {
-    position: absolute;
-    top: 0;
-    width: 200px;
-    background-color: rgba(0,0,0,0.7);
-    height: 100%;
-    color: white;
-}
-.sideControls>div {
-    width: 100%;
-}
-.MasterTitle {
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: dotted 1px white;
-}
-.MasterTitle h1 {
-    font-size: 18pt;
-    font-weight: 900;
-}
-.sideControls ul {
-    width: 100%;
-}
-.sideControls ul li a {
     display: flex;
-    padding: 3px 10px;
-    align-items: center;
-}
-ul li {
-    display: block;
-    margin: 7px 0;
-}
-li a p {
-    display: block;
-    padding: 0 10px;
-}
-/*MEMBER */
-.contentBlock {
-    margin-left: 200px;
-    padding: 10px;   
-}
-
-.contentData {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.contentData>div {
-    margin-right: 20px;
-}
-/*MEMBER END*/
-/*Panel view*/
-.myPanel {
-    border: solid 2px purple;
-    min-height: 50px;
-    display: flex;
-    flex-flow: column;
-    max-width: 970px;
-    position: relative;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
-    color: white;
-}
-.myPanelHead {
-    background-color: purple;
-    padding: 20px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    flex: 0 0 auto;
-    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;
+    color: white;
+
 }
-.headIcons {
-    flex: 0 0 auto;
-    margin-left: 20px;
-    display: flex;
-}
-.headIcons i {
-    margin: 0 10px;
-}
-.myPanelHead h2 {
-    font-size: 14pt;
-}
-.myPanelBody {
-    flex: 1 0 auto;
-    min-height: 50px;
-    background-color: snow;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    color: darkslateblue
-}
-.myPanelBody article {
-    max-width: 400px;
-    padding: 5px;
-}
-.myPanelBody article:first-letter {
-    margin-left: 20px;
-}
-.myPhoto {
-    flex: 0 0 auto;
-}
-.myPersonal {
-    flex: 1 0 auto;
-    color: darkslateblue;
-    margin: 20px;
-    text-align: right;
-}
-.myPersonal h1 {
-    font-size: 16pt;
-}
-.myPhotoAndDescr {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between; 
-}
-.emptyPhotoContainer {
+.masterpageLeftMenuWrapper {
     width: 250px;
-    height: 300px;
-    margin: 20px;
-    border: solid 5px gray;
-    border-radius: 10px;
+    background-color: black;
+    height: auto;
+    flex: 0 0 auto;
     display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    align-items: center;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    overflow-x: hidden;
 }
-.emptyPhotoContainer>div {
-    border: solid 1px gray;
+.imageZone {
+    text-align: center;
+}
+.titleZone h2 {
+    font-size: 20pt;
+    font-weight: 800;
+    color: white;
+    display: block;
+    margin: 10px 0;
+}
+.titleZone h3 {
+    color: white;
+}
+.avatarFree {
     width: 100%;
+    padding: 30px 10px 10px 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
-.topPhotoBlock {
-    flex: 0 0 auto;
-    height: 30px;
-}
-.emptyPhotoDescr {
-    flex: 1 0 auto;
+.avaFreeRound {
+    border: solid 3px khaki;
+    width: 150px;
+    height: 150px;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    font-size: 14pt;
+    background-color: lightblue;
 }
-.photoControls {
-    flex: 0 0 auto;
-    height: 30px;
-    color: gray;
-}
-.photoControls label {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
 
-}
-.photoControls input {
+.avatarWrapper {
     display: none;
 }
-.photoControls label button {
-    display: none;
+.menuList ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
-.drNdropfilehere {
-    width: 100px;
-    height: 100px;
-    background: lightgrey;
-    border-radius: 50%;
+.menuList ul li {
+    display: block;
+    padding: 10px 5px;
+    cursor: pointer;
+    font-size: 15pt;
+    position: relative;
 }
-.myPersonal a p {
-    display: inline;
+.menuList ul li div {
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    position: absolute;
+    right: -10px;
+    top: 15px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none
 }
-.myPersonal a span {
-    padding: 5px;
+
+.menuList ul li:hover div{
+    display: block;
 }
-/*Panel view END*/
