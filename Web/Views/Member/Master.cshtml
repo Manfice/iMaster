@@ -27,12 +27,24 @@
         </div>
         <div class="menuList">
             <ul>
-                <li>Заявки <div></div></li>
-                <li>Предложения<div></div></li>
-                <li>Гости<div></div></li>
-                <li>Почта<div></div></li>
-                <li>Настройки<div></div></li>
+                <li data-bind="click: MasterModel.setView.bind($data, 'orders')">Заявки
+                    <div></div></li>
+                <li data-bind="click: MasterModel.setView.bind($data, 'goods')">Предложения
+                    <div></div></li>
+                <li data-bind="click: MasterModel.setView.bind($data, 'settings')">Настройки
+                    <div></div></li>
             </ul>
+        </div>
+    </div>
+    <div class="workArea">
+        <div class="placeholder" style="display: none" data-bind="visible:MasterModel.isActiveView('orders')">
+            @Html.Partial("placeholders/_Orders")
+        </div>
+        <div style="display: none" data-bind="visible:MasterModel.isActiveView('goods')">
+            @Html.Partial("placeholders/_goods")
+        </div>
+        <div style="display: none" data-bind="visible:MasterModel.isActiveView('settings')">
+            @Html.Partial("placeholders/_settings")
         </div>
     </div>
 </div>

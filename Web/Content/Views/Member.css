@@ -1,6 +1,5 @@
 ﻿.masterpageWrapper {
     width: 100%;
-    background-color: gray;
     flex: 1 0 auto;
     height: 50px;
     position: relative;
@@ -86,4 +85,26 @@
 
 .menuList ul li:hover div{
     display: block;
+}
+.workArea {
+    flex: 1 0 auto;
+    background-color: pink;
+    padding: 20px;
+}
+.placeholder {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+.myPanel {
+    flex: 1 0 auto;
+    width: 100%;
+}
+.myPanelHead {
+    padding: 20px;
+    background-color: purple;
+}
+.myPanelBody {
+    background-color: wheat;
+    padding: 20px;
 }

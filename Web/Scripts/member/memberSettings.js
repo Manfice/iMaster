@@ -1,6 +1,6 @@
 ﻿var SettingsModel = function () {
 
-    var memberClient = function () {
+    var MemberClient = function () {
 
         var rt = "/api/apimember/";
         var getMember = function(callback) {
@@ -39,7 +39,7 @@
         };
     }
 
-    var client = new memberClient();
+    var client = new MemberClient();
 
     var person = {
         personInfo: {

@@ -451,12 +451,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Member\UserProfile.cshtml" />
     <Content Include="Views\Member\Master.cshtml" />
-    <Content Include="Views\Member\Dashboard.cshtml" />
-    <Content Include="Views\Member\MyProfile.cshtml" />
-    <Content Include="Views\Member\MyBrands.cshtml" />
-    <Content Include="Views\Member\DeliveryTypes.cshtml" />
     <Content Include="Views\Member\Goods.cshtml" />
     <Content Include="Views\Member\Settings.cshtml" />
+    <Content Include="Views\Member\placeholders\_Orders.cshtml" />
+    <Content Include="Views\Member\placeholders\_settings.cshtml" />
+    <Content Include="Views\Member\placeholders\_goods.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

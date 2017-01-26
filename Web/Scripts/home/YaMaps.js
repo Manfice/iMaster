@@ -4,26 +4,26 @@
     $("#ddMenu").on("click", function (event) {
         var el = $(".dropDownPersonal");
         if (!persVisible) {
-            $({ y: -176 }).animate({ y: 201 }, {
-                duration: 1000,
+            $({ y: -156 }).animate({ y: 201 }, {
+                duration: 50,
                 step: function(now) {
                     el.css("transform", "translateY(" + now + "px)");
                 }
             }, {
                 easing: "easeOutElastic"
             });
-            el.show("fast");
+            //el.show("fast");
             persVisible = true;
         } else {
-            $({ y: 201 }).animate({ y: -176 }, {
-                duration: 1000,
+            $({ y: 201 }).animate({ y: -201 }, {
+                duration: 50,
                 step: function (now) {
                     el.css("transform", "translateY(" + now + "px)");
                 }
             }, {
                  easing: "easeOutElastic"
             });
-            el.hide("fast");
+            //el.hide("fast");
             persVisible = false;
         }
     });
