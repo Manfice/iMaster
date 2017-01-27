@@ -6,7 +6,6 @@
 }
 @section link
 {
-    <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/Views/Member.css" rel="stylesheet" />
 }
 <div id="masterPage" class="masterpageWrapper">
@@ -21,17 +20,17 @@
                 <img alt="manfice"/>
             </div>
             <div class="titleZone">
-                <h3>Manfice</h3>
+                <h3 data-bind="text:settings.publicInfo.Nikname">Manfice</h3>
                 <h2>ЯМастер</h2>
             </div>
         </div>
         <div class="menuList">
             <ul>
-                <li data-bind="click: MasterModel.setView.bind($data, 'orders')">Заявки
+                <li data-bind="click: MasterModel.setView.bind($data, 'orders'), css:{active:MasterModel.isActiveView('orders')}">Заявки
                     <div></div></li>
-                <li data-bind="click: MasterModel.setView.bind($data, 'goods')">Предложения
+                <li data-bind="click: MasterModel.setView.bind($data, 'goods'), css:{active:MasterModel.isActiveView('goods')}">Предложения
                     <div></div></li>
-                <li data-bind="click: MasterModel.setView.bind($data, 'settings')">Настройки
+                <li data-bind="click: MasterModel.setView.bind($data, 'settings'), css:{active:MasterModel.isActiveView('settings')}">Настройки
                     <div></div></li>
             </ul>
         </div>
@@ -52,5 +51,7 @@
 @section scripts
 {
     <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/master/MasterClient.js"></script>
     <script src="~/Scripts/master/MasterModel.js"></script>
+    <script src="~/Scripts/home/YaMaps.js"></script>
 }

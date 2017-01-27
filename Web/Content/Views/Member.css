@@ -83,8 +83,9 @@
     display: none
 }
 
-.menuList ul li:hover div{
+.menuList ul li:hover div, .menuList ul li.active div{
     display: block;
+    background-color: pink;
 }
 .workArea {
     flex: 1 0 auto;
@@ -103,8 +104,108 @@
 .myPanelHead {
     padding: 20px;
     background-color: purple;
+    font-size: 18pt;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.myPanelHead h2 {
+    font-weight: 800;
 }
 .myPanelBody {
     background-color: wheat;
     padding: 20px;
+}
+.tabMenu ul {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+
+}
+.tabMenu ul li {
+    display: block;
+    font-size: 14pt;
+    color: purple;
+    padding: 5px 15px;
+    background-color: whitesmoke;
+    cursor: pointer;
+    max-width: 200px;
+    width: 100%;
+}
+.tabMenu ul li.active, .tabMenu ul li:hover {
+    background-color: purple;
+    color: whitesmoke;
+    font-weight: 600; 
+}
+form {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+form .inputBlock {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin: 5px 0;
+}
+.inputBlock p {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    color: black;
+    font-weight: 600;
+    width: 200px;
+}
+.inputBlock p i {
+    padding: 0 10px;
+}
+.inputBlock div {
+    flex: 1 0 auto;
+    max-width: 600px;
+    width: 100%;
+}
+.inputBlock div input {
+    display: block;
+    margin: 0 20px;
+}
+.inputBlock div textarea {
+    height: 90px;
+    padding: 5px 10px;
+    -moz-resize: none;
+    -ms-resize: none;
+    -o-resize: none;
+    resize: none;
+    margin: 0 20px;
+}
+.updateStatus {
+    display: none;
+}
+.tContacts {
+    max-width: 900px;
+    width: 100%;
+    color: black;
+    margin: 20px 0;
+}
+.contactsTypes {
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 900px;
+    width: 100%;
+    justify-content: space-around;
+    margin: 20px
+}
+.contactsConstraints {
+    display: block;
+    max-width: 900px;
+    width: 100%;
+    color: purple;
+    font-size: 16pt;
+    margin: 20px;
+    font-weight: 600;
+
 }

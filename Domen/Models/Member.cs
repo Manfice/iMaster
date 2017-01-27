@@ -7,7 +7,7 @@ namespace Domen.Models
     {
         public int Id { get; set; }
         public string PersonName { get; set; }
-        public string AboutMe { get; set; }
+        //public string AboutMe { get; set; }
         public string UserId { get; set; }
         public DateTime? Birthday { get; set; }
         public string Country { get; set; }
@@ -18,6 +18,7 @@ namespace Domen.Models
         public virtual ICollection<Contact> MemberContacts { get; set; }
         public virtual Master Master { get; set; }
         public virtual ICollection<Brand> Brands { get; set; }
+        public virtual PublicMasterInfo PublicMasterInfo { get; set; }
     }
 
     public class SaveMemberPrimeData
@@ -32,12 +33,24 @@ namespace Domen.Models
 
     }
 
+    public class PublicMasterInfo
+    {
+        public int Id { get; set; }
+        public string Nikname { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string AboutMe { get; set; }
+        public string Facebook { get; set; }
+        public string Vkontakte { get; set; }
+        public string Instagram { get; set; }
+    }
 
     public class Contact
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
+        public virtual Member Master { get; set; }
     }
 
     public class Avatar

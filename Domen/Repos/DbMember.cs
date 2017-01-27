@@ -35,11 +35,27 @@ namespace Domen.Repos
             return _context.Members.FirstOrDefault(m => m.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        public Task<Member> GetMemberByUserIdAsync(string id)
+        public async Task<Member> GetMemberByUserIdAsync(string id)
         {
-            return
+            return await 
                 _context.Members.FirstOrDefaultAsync(
                     member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        public PublicMasterInfo GetPublicMasterInfo(string id)
+        {
+            return
+                _context.Members.FirstOrDefault(
+                    master => master.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase))?.PublicMasterInfo;
+        }
+
+        public async Task<PublicMasterInfo> GetPublicMasterInfoAsync(string id)
+        {
+            var m = await
+                _context.Members.FirstOrDefaultAsync(
+                    member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
+            return m.PublicMasterInfo;
+
         }
 
         public async Task<Member> UpdateMemberAsync(Member member)
@@ -49,7 +65,7 @@ namespace Domen.Repos
             {
                 return null;
             }
-            db.AboutMe = member.AboutMe;
+            //db.AboutMe = member.AboutMe;
             db.PersonName = member.PersonName;
             db.Birthday = member.Birthday;
             db.City = member.City;
@@ -58,6 +74,42 @@ namespace Domen.Repos
             db.Phone = member.Phone;
             await _context.SaveChangesAsync();
             return db;
+        }
+
+        public PublicMasterInfo UpdatePublicMasterInfo(PublicMasterInfo model)
+        {
+            var i = _context.PublicMasterInfos.Find(model.Id);
+            if (i==null)
+            {
+                return null;
+            }
+            i.AboutMe = model.AboutMe;
+            i.City = model.City;
+            i.Country = model.Country;
+            i.Nikname = model.Nikname;
+            i.Facebook = model.Facebook;
+            i.Vkontakte = model.Vkontakte;
+            i.Instagram = model.Instagram;
+            _context.SaveChanges();
+            return i;
+        }
+
+        public async Task<PublicMasterInfo> UpdatePublicMasterInfoAsync(PublicMasterInfo model)
+        {
+            var i = await _context.PublicMasterInfos.FindAsync(model.Id);
+            if (i == null)
+            {
+                return null;
+            }
+            i.AboutMe = model.AboutMe;
+            i.City = model.City;
+            i.Country = model.Country;
+            i.Nikname = model.Nikname;
+            i.Facebook = model.Facebook;
+            i.Vkontakte = model.Vkontakte;
+            i.Instagram = model.Instagram;
+             await _context.SaveChangesAsync();
+            return i;
         }
     }
 }

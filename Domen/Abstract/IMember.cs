@@ -13,5 +13,9 @@ namespace Domen.Abstract
         Member GetMemberById(int id);
         Task<Member> GetMemberByUserIdAsync(string id);
         Member GetMemberByUserId(string id);
+        PublicMasterInfo GetPublicMasterInfo(string id);
+        Task<PublicMasterInfo> GetPublicMasterInfoAsync(string id);
+        PublicMasterInfo UpdatePublicMasterInfo(PublicMasterInfo model);
+        Task<PublicMasterInfo> UpdatePublicMasterInfoAsync(PublicMasterInfo model);
     }
 }

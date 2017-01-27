@@ -1,0 +1,65 @@
+﻿<form data-bind="with:settings.publicInfo, submit:MasterModel.submitPublic">
+    @Html.AntiForgeryToken()
+
+    <div class="inputBlock">
+        <p>
+            Ник/nikname <i title="Эот имя будет видеть пользователь" class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <input type="text" name="Nikname" tabindex="0" data-bind="value:Nikname" />
+        </div>
+    </div>
+
+    <div class="inputBlock">
+        <p>
+            Страна <i title="Страна, где вы осуществляете деятельность." class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <input type="text" name="Country" tabindex="1" data-bind="value:Country"/>
+        </div>
+    </div>
+    <div class="inputBlock">
+        <p>
+            Город <i title="Город постоянного пребывания." class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <input type="text" name="Citi" tabindex="2" data-bind="value:City"/>
+        </div>
+    </div>
+    <div class="inputBlock">
+        <p>
+            Коротко о себе <i title="Расскажите пользователям. чем вы занимаетесь, Ваши преимущества." class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <textarea rows="5" name="About" tabindex="3" data-bind="textInput:AboutMe"></textarea>
+        </div>
+    </div>
+    <div class="inputBlock">
+        <p>
+            Facebook <i title="Ваш аккаунт в соц. сети" class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <input type="text" name="Facebook" tabindex="4" data-bind="value:Facebook"/>
+        </div>
+    </div>
+    <div class="inputBlock">
+        <p>
+            VKontakte <i title="Ваш аккаунт в соц. сети" class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <input type="text" name="VKontakte" tabindex="5" data-bind="value:Vkontakte"/>
+        </div>
+    </div>
+    <div class="inputBlock">
+        <p>
+            Instagram <i title="Ваш аккаунт в соц. сети" class="fa fa-question-circle"></i>
+        </p>
+        <div>
+            <input type="text" name="Instagram" tabindex="6" data-bind="value:Instagram"/>
+        </div>
+    </div>
+    <div class="formButtons">
+        <button type="submit" class="btnSuccess">Сохранить</button>
+        @*<button type="button" class="btnSuccess" data-bind="click:MasterModel.fadeUpDownStatus">Test</button>*@
+    </div>
+</form>

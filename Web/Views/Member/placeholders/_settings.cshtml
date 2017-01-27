@@ -1,8 +1,25 @@
 ﻿<div class="myPanel">
     <div class="myPanelHead">
         <h2>Настройки</h2>
+        <h3 class="updateStatus"><i class="fa fa-exclamation-circle"></i> Информация обновлена</h3>
     </div>
     <div class="myPanelBody">
-
+        <div class="tabMenu">
+            <ul>
+                <li data-bind="click:MasterModel.setTab.bind($data,'about'),css:{active:MasterModel.isActiveTab('about')}">О себе</li>
+                <li data-bind="click:MasterModel.setTab.bind($data,'contacts'),css:{active:MasterModel.isActiveTab('contacts')}">Контакты</li>
+                <li data-bind="click:MasterModel.setTab.bind($data,'avas'),css:{active:MasterModel.isActiveTab('avas')}">Логотипы</li>
+                <li data-bind="click:MasterModel.setTab.bind($data,'requisites'),css:{active:MasterModel.isActiveTab('requisites')}">Реквизиты</li>
+                <li data-bind="click:MasterModel.setTab.bind($data,'accounts'),css:{active:MasterModel.isActiveTab('accounts')}">Мой сайт</li>
+            </ul>
+        </div>
+        <div class="bodyData">
+            <div data-bind="visible:MasterModel.isActiveTab('about')" style="display: none">
+                @Html.Partial("placeholders/_tabAboutMe")
+            </div>
+            <div data-bind="visible:MasterModel.isActiveTab('contacts')" style="display: none">
+                @Html.Partial("placeholders/_tabContacts")
+            </div>
+        </div>
     </div>
 </div>

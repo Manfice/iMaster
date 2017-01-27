@@ -50,6 +50,7 @@ body {
     font-style: italic;
     background: linear-gradient(47deg, rgb(80, 11, 80), #73c8ff) no-repeat fixed;
 }
+
 .insetshadow {
     color: #202020;
     -ms-text-shadow: 
@@ -238,7 +239,7 @@ header ul li {
 .socBlock form button img {
     width: 32px;
 }
-input {
+input, textarea {
     display: block;
     border: none;
     width: 100%;
@@ -257,6 +258,22 @@ input {
 }
 .headerImageWrapper img {
     width: 100%;
+}
+.btnSuccess, .btnSuccess:active, .btnSuccess:focus {
+    border: solid 2px white;
+    display: block;
+    margin: 5px 10px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    background-color: green;
+    transition: .2s;
+}
+.btnSuccess:hover {
+    background-color: white;
+    color: purple;
+    border: solid 2px purple;
+    font-weight: 600;
+    transition: .2s;
 }
 /*Personal data dropdown menu*/
 #personData {

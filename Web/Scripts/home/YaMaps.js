@@ -1,4 +1,7 @@
 ﻿(function () {
+    if (!navigator.cookieEnabled) {
+        alert("Coockie files switch off!");
+    }
     var persVisible = false;
     var geo;
     $("#ddMenu").on("click", function (event) {

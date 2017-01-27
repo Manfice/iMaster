@@ -264,6 +264,13 @@
     <Content Include="Content\img\backgrounds\hexagon.png" />
     <Content Include="Content\img\backgrounds\kuznica-molot-nakovalnya-1920.jpg" />
     <Content Include="Content\img\meneger.png" />
+    <Content Include="Content\img\msng\cellphone.png" />
+    <Content Include="Content\img\msng\hs64.png" />
+    <Content Include="Content\img\msng\mail.png" />
+    <Content Include="Content\img\msng\sk.png" />
+    <Content Include="Content\img\msng\Telegram.png" />
+    <Content Include="Content\img\msng\viber.png" />
+    <Content Include="Content\img\msng\wa64.png" />
     <Content Include="Content\img\myFone.jpg" />
     <Content Include="Content\img\soclogos\f64.png" />
     <Content Include="Content\img\soclogos\g64.png" />
@@ -400,6 +407,7 @@
     <Content Include="Scripts\knockout-3.4.0.js" />
     <Content Include="Scripts\knockout.punches.js" />
     <Content Include="Scripts\knockout.punches.min.js" />
+    <Content Include="Scripts\master\MasterClient.js" />
     <Content Include="Scripts\master\MasterModel.js" />
     <Content Include="Scripts\member\MemberClient.js" />
     <Content Include="Scripts\member\memberSettings.js" />
@@ -456,6 +464,8 @@
     <Content Include="Views\Member\placeholders\_Orders.cshtml" />
     <Content Include="Views\Member\placeholders\_settings.cshtml" />
     <Content Include="Views\Member\placeholders\_goods.cshtml" />
+    <Content Include="Views\Member\placeholders\_tabAboutMe.cshtml" />
+    <Content Include="Views\Member\placeholders\_tabContacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

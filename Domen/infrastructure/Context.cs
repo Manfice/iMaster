@@ -21,6 +21,7 @@ namespace Domen.infrastructure
         public DbSet<Specialists> Specialists { get; set; }
         public DbSet<Master> Masters { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<PublicMasterInfo> PublicMasterInfos { get; set; }
 
     }
 }

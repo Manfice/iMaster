@@ -20,10 +20,16 @@ namespace Web.Controllers
         {
             _member = member;
         }
+
+        [HttpGet]
+        public IHttpActionResult GetMasterPublicInfo()
+        {
+            var info = _member.GetPublicMasterInfo(User.Identity.GetUserId());
+            return info != null ? Ok(info) : (IHttpActionResult) BadRequest("Мастер не авторизован в системе!");
+        }
         [HttpGet]
         public IHttpActionResult GetMember()
         {
-            var uId = User.Identity.GetUserId();
             return Ok(_member.GetMemberByUserId(User.Identity.GetUserId()));
         }
 
@@ -37,7 +43,7 @@ namespace Web.Controllers
             {
                 City = member.City,
                 Country = member.Country,
-                AboutMe = member.AboutMe,
+                //AboutMe = member.AboutMe,
                 Birthday = myD,
                 Email = member.Email,
                 PersonName = member.PersonName,
@@ -48,5 +54,18 @@ namespace Web.Controllers
 
             return result!=null? Ok(result):(IHttpActionResult) BadRequest("Something Wrong");
         }
+
+        public async Task<IHttpActionResult> UpdatePublicInfo(PublicMasterInfo model)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var result = await _member.UpdatePublicMasterInfoAsync(model);
+                return result!=null? Ok(result):(IHttpActionResult)BadRequest($"Error 4000-{User.Identity.Name}");
+            }
+            else
+            {
+                return (IHttpActionResult)BadRequest("Ошибка авторизации");
+            }
+        } 
     }
 }
