@@ -466,6 +466,7 @@
     <Content Include="Views\Member\placeholders\_goods.cshtml" />
     <Content Include="Views\Member\placeholders\_tabAboutMe.cshtml" />
     <Content Include="Views\Member\placeholders\_tabContacts.cshtml" />
+    <Content Include="Views\Member\placeholders\_tabAvatar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

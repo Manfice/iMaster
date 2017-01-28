@@ -6,12 +6,29 @@
         setTimeout(function() {
             block.fadeOut();
         }, 2000);
+    };
+    var $cropImage;
+
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $(".uploadImage").addClass("ready");
+                $cropImage.croppie("bind", {
+                    url: e.target.result
+                });
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            alert("Browser error 400");
+        }
     }
     /*Model*/
     var model = {
-        menu: ko.observable("wow"),
+        menu: ko.observable("settings"),
         settings: {
-            tab: ko.observable("personal"),
+            tab: ko.observable("avas"),
             publicInfo: {
                 Id: ko.observable(),
                 Nikname: ko.observable("Vasia"),
@@ -22,7 +39,8 @@
                 Vkontakte: ko.observable("ВК"),
                 Instagram: ko.observable("300 грамм")
             },
-            contacts:ko.observableArray()
+            contacts: ko.observableArray(),
+            avatar:ko.observable(null)
         },
         orders: ko.observableArray([]),
         goods: ko.observableArray([])
@@ -67,9 +85,36 @@
         model.settings.contacts.push({ Id: null, Title: ko.observable(t), Value: null, display: "NEW" });
 
     }
+    /*Croppie image block*/
+    var croppieInit = function() {
+        $cropImage = $("#uploadBlock").croppie({
+            viewport: {
+                width: 200,
+                height: 200,
+                type: "circle"
+            },
+            enableExif: true,
+            boundary: {
+                width: 300,
+                height:300
+                }
+        });
+    }
+    $("#upload").on("change", function() {
+        readFile(this);
+    });
+    $("#uploadResult").on("click", function(ev) {
+        $cropImage.croppie("result", {
+            type: "canvas",
+            size:"viewport"
+        }).then(function (dt) {
+            model.settings.avatar(dt);
+        });
+    });
     /*Init*/
     var init = function () {
         retrievePublicInfo();
+        croppieInit();
         ko.applyBindings(model, document.getElementById("masterPage"));
     }
 
@@ -82,7 +127,7 @@
         isActiveTab: isActiveTab,
         submitPublic: submitPublic,
         fadeUpDownStatus: fadeUpDownStatus,
-        addContact: addContact
+        addContact: addContact,
     }
 }();
 

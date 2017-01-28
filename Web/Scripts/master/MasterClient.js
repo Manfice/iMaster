@@ -22,8 +22,20 @@
         });
     }
 
+    var uploadAvatar = function(data) {
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "/UploadAvatar",
+            data: data,
+            success: function(result) {
+                alert("Send");
+            }
+        });
+    }
+
     return {
         getMasterPersonalInfo: getMasterPersonalInfo,
-        updatePublicMasterInfo: updatePublicMasterInfo
+        updatePublicMasterInfo: updatePublicMasterInfo,
+        uploadAvatar: uploadAvatar
     }
 };

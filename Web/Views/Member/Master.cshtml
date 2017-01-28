@@ -6,18 +6,19 @@
 }
 @section link
 {
+    <link href="~/Content/croppie.css" rel="stylesheet" />
     <link href="~/Content/Views/Member.css" rel="stylesheet" />
 }
 <div id="masterPage" class="masterpageWrapper">
     <div class="masterpageLeftMenuWrapper">
         <div class="imageZone">
-            <div class="avatarFree">
+            <div class="avatarFree" data-bind="visible:settings.avatar()===null">
                 <div class="avaFreeRound">
                     <p>no image</p>
                 </div>
             </div>
-            <div class="avatarWrapper">
-                <img alt="manfice"/>
+            <div class="avatarWrapper" style="display: none" data-bind="visible:settings.avatar()">
+                <img id="avatar" alt="manfice" data-bind="attr:{src:settings.avatar}"/>
             </div>
             <div class="titleZone">
                 <h3 data-bind="text:settings.publicInfo.Nikname">Manfice</h3>
@@ -51,6 +52,7 @@
 @section scripts
 {
     <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/croppie.js"></script>
     <script src="~/Scripts/master/MasterClient.js"></script>
     <script src="~/Scripts/master/MasterModel.js"></script>
     <script src="~/Scripts/home/YaMaps.js"></script>

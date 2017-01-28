@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using Domen.Abstract;
 using Domen.Models;
@@ -66,6 +67,11 @@ namespace Web.Controllers
             {
                 return (IHttpActionResult)BadRequest("Ошибка авторизации");
             }
+        }
+
+        public async Task<IHttpActionResult> UploadAvatar(HttpPostedFileBase ava)
+        {
+            return Ok();
         } 
     }
 }

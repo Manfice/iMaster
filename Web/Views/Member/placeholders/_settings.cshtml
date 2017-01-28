@@ -20,6 +20,9 @@
             <div data-bind="visible:MasterModel.isActiveTab('contacts')" style="display: none">
                 @Html.Partial("placeholders/_tabContacts")
             </div>
+            <div data-bind="visible:MasterModel.isActiveTab('avas')" style="display: none">
+                @Html.Partial("placeholders/_tabAvatar")
+            </div>
         </div>
     </div>
 </div>

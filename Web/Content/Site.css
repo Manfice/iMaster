@@ -259,7 +259,7 @@ input, textarea {
 .headerImageWrapper img {
     width: 100%;
 }
-.btnSuccess, .btnSuccess:active, .btnSuccess:focus {
+.btnSuccess, .btnSuccess:active, .btnSuccess:focus, .btnSuccess:active {
     border: solid 2px white;
     display: block;
     margin: 5px 10px;
@@ -267,6 +267,7 @@ input, textarea {
     border-radius: 5px;
     background-color: green;
     transition: .2s;
+    cursor: pointer;
 }
 .btnSuccess:hover {
     background-color: white;
