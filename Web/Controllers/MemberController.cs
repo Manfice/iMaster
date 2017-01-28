@@ -35,6 +35,10 @@ namespace Web.Controllers
             return View(members);
         }
 
+        public ActionResult CropieTest()
+        {
+            return View();
+        }
         // GET: Member
         //public ActionResult Index()
         //{

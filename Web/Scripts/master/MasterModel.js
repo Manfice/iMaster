@@ -7,23 +7,7 @@
             block.fadeOut();
         }, 2000);
     };
-    var $cropImage;
 
-    function readFile(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $(".uploadImage").addClass("ready");
-                $cropImage.croppie("bind", {
-                    url: e.target.result
-                });
-            };
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            alert("Browser error 400");
-        }
-    }
     /*Model*/
     var model = {
         menu: ko.observable("settings"),
@@ -86,6 +70,24 @@
 
     }
     /*Croppie image block*/
+    var $cropImage;
+
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(".uploadImage").addClass("ready");
+                $cropImage.croppie("bind", {
+                    url: e.target.result
+                });
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            alert("Browser error 400");
+        }
+    }
+
     var croppieInit = function() {
         $cropImage = $("#uploadBlock").croppie({
             viewport: {
@@ -93,24 +95,27 @@
                 height: 200,
                 type: "circle"
             },
-            enableExif: true,
+            enableExif: false,
             boundary: {
                 width: 300,
                 height:300
-                }
+            }
         });
     }
+
     $("#upload").on("change", function() {
         readFile(this);
     });
+
     $("#uploadResult").on("click", function(ev) {
         $cropImage.croppie("result", {
             type: "canvas",
-            size:"viewport"
+            size:"original"
         }).then(function (dt) {
             model.settings.avatar(dt);
         });
     });
+
     /*Init*/
     var init = function () {
         retrievePublicInfo();

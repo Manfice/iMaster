@@ -278,7 +278,9 @@ input[type="file"] {
 
 }
 .uploadCropWrapper {
-    display: none;
+    display: block;
+    width: 300px;
+    height: 300px;
 }
 #uploadResult {
     display: none;
