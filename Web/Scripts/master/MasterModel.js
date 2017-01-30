@@ -29,7 +29,13 @@
         orders: ko.observableArray([]),
         goods: ko.observableArray([])
     };
-
+    function Contact (data,view) {
+        this.data = {};
+        this.data.Id = ko.observable(data.Id);
+        this.data.Title = ko.observable(data.Title);
+        this.data.Value = ko.observable(data.Value);
+        this.display = ko.observable(view);
+    }
     /*Methods*/
     var setView = function(v) {
         model.menu(v);
@@ -43,8 +49,8 @@
     var isActiveTab = function(view) {
         return model.settings.tab() === view;
     }
+
     var getPublicInfoCallback = function (data) {
-        
         var pi = model.settings.publicInfo;
         pi.Id(data.PublicMasterInfo.Id);
         pi.Nikname(data.PublicMasterInfo.Nikname);
@@ -56,6 +62,15 @@
         pi.Instagram(data.PublicMasterInfo.Instagram);
         if (data.Avatar.Path) {
             model.settings.avatar(data.Avatar.Path);
+        }
+        if (data.MemberContacts) {
+            model.settings.contacts.removeAll();
+            var c = data.MemberContacts;
+            c.forEach(function(cont) {
+                //model.settings.contacts.push({ Id: ko.observable(cont.Id), Title: ko.observable(cont.Title), Value: ko.observable(cont.Value), display: ko.observable("OLD") });
+                model.settings.contacts.push(new Contact(cont, "OLD"));
+            });
+            console.log(ko.toJSON(model.settings.contacts()));
         }
     }
     var retrievePublicInfo = function() {
@@ -69,34 +84,38 @@
         updPublicInfo();
     }
 
-    var addContact = function(t) {
-        model.settings.contacts.push({ Id: ko.observable(null), Title: ko.observable(t), Value: ko.observable(null), display: "NEW" });
+    var addContact = function (t) {
+        var itm = { Id: null, Title: t, Value: null };
+        model.settings.contacts.push(new Contact(itm, "NEW"));
 
     }
     var updateContacts = function () {
+        alert("WOW");
         var c = model.settings.contacts();
         var contacts = [];
-        var contact = function(data) {
-            this.Id = data.Id;
-            this.Title = data.Title;
-            this.Value = data.Value;
-        }
         c.forEach(function (ct) {
-
-            if (ct.Value()) {
-                contacts.push(new contact(ct));
-            } else {
+            if (!ct.data.Value()) {
                 model.settings.contacts.remove(ct);
+            } else {
+                contacts.push(ct.data);
             }
         });
-        client.updateContacts(model.settings.contacts);
+        console.log(ko.toJSON(contacts));
+        client.updateContacts(contacts);
 
     };
     var removeContact = function (c) {
         if (!c.Id()) {
             model.settings.contacts.remove(c);
+        } else {
+            alert("WOW");
         }
     }
+
+    var editContact = function (c) {
+        c.display("NEW");
+    }
+
     /*Croppie image block*/
     var $cropImage;
 
@@ -174,7 +193,7 @@
         fadeUpDownStatus: fadeUpDownStatus,
         addContact: addContact, $cropImage: $cropImage,
         updateContacts: updateContacts,
-        removeContact: removeContact
+        removeContact: removeContact, editContact: editContact
     }
 }();
 

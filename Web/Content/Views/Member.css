@@ -299,11 +299,18 @@ input[type="file"] {
     font-weight: 600;
 
 }
+.tContacts tbody tr td input {
+    max-width: 300px;
+}
 .tContacts tbody tr td:last-child {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 5px;
-    max-width: 200px;
+    max-width: 300px;
     width: 100%;
+}
+td:last-child a.btnSuccess, td:last-child a.btnDanger {
+    flex: 1 0 auto;
+    text-align: center;
 }
