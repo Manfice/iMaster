@@ -5,8 +5,10 @@
             <div class="uploadMessage">
                 <p>Загрузите фото для обработки</p>
             </div>
-            <div class="uploadCropWrapper">
-                <div id="uploadBlock"></div>
+            <div class="cropTest">
+                <div class="uploadCropWrapper">
+                    <div id="uploadBlock"></div>
+                </div>
             </div>
 
             <div class="uploadButtonsRow">
@@ -18,4 +20,8 @@
             </div>
         </div>
     </div>
+    <form id="svAva" style="display: none">
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="avaContainer" name="avatar"/>
+    </form>
 </div>

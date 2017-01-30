@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -25,7 +26,7 @@ namespace Web.Controllers
         [HttpGet]
         public IHttpActionResult GetMasterPublicInfo()
         {
-            var info = _member.GetPublicMasterInfo(User.Identity.GetUserId());
+            var info = _member.GetMemberByUserId(User.Identity.GetUserId());
             return info != null ? Ok(info) : (IHttpActionResult) BadRequest("Мастер не авторизован в системе!");
         }
         [HttpGet]
@@ -68,10 +69,50 @@ namespace Web.Controllers
                 return (IHttpActionResult)BadRequest("Ошибка авторизации");
             }
         }
-
-        public async Task<IHttpActionResult> UploadAvatar(HttpPostedFileBase ava)
+        [HttpPost]
+        public async Task<IHttpActionResult> UploadAvatar()
         {
-            return Ok();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return (IHttpActionResult) BadRequest("Auth fail");
+            }
+            var userId = User.Identity.GetUserId();
+            var cnt = HttpContext.Current.Request.Files["avatar"];
+            if (cnt==null || cnt.ContentLength<=0)
+            {
+                return (IHttpActionResult) BadRequest("Ошибка передачи файла.");
+            }
+            var root = HttpContext.Current.Server.MapPath("~/MasterUploads/"+userId);
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            var fileName = $"avatar-{User.Identity.GetUserId()}-{DateTime.Now.Millisecond}.png";
+            var mA = new Avatar
+            {
+                FullPath = root+"/"+fileName,
+                Path = $"/MasterUploads/{User.Identity.GetUserId()}/{fileName}"
+            };
+            var fl = _member.GetAvatarFilePath(userId);
+            if (System.IO.File.Exists(fl))
+            {
+                File.Delete(fl);
+            }
+            cnt.SaveAs(root+"/"+fileName);
+            var result = await _member.SaveAvatarAsync(userId, mA);
+            return Ok(result);
+        }
+        [HttpPost]
+        public async Task<IHttpActionResult> UpdateContacts(List<Contact> model)
+        {
+            if (!model.Any())
+            {
+                return (IHttpActionResult) BadRequest();
+            }
+
+            var user = User.Identity.GetUserId();
+            var result = await _member.UpdateContactsAsync(user, new ContactsViewModel {Contacts = model});
+            return Ok(result.Contacts);
         } 
     }
 }

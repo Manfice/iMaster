@@ -20,6 +20,14 @@ namespace Domen.Repos
             throw new NotImplementedException();
         }
 
+        public string GetAvatarFilePath(string id)
+        {
+            var s =
+                _context.Members.FirstOrDefault(
+                    member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
+            return s?.Avatar.FullPath;
+        }
+
         public Member GetMemberById(int id)
         {
             return _context.Members.Find(id);
@@ -56,6 +64,62 @@ namespace Domen.Repos
                     member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
             return m.PublicMasterInfo;
 
+        }
+
+        public Avatar SaveAvatar(string id, Avatar model)
+        {
+            var db = _context.Members.FirstOrDefault(member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
+            if (db == null)
+            {
+                return null;
+            }
+            if (db.Avatar != null)
+            {
+                _context.Avatars.Remove(db.Avatar);
+            }
+            db.Avatar = model;
+            _context.SaveChanges();
+            return db.Avatar;
+        }
+
+        public async Task<Avatar> SaveAvatarAsync(string id, Avatar model)
+        {
+            var db = _context.Members.FirstOrDefault(member => member.UserId.Equals(id,StringComparison.CurrentCultureIgnoreCase));
+            if (db==null)
+            {
+                return null;
+            }
+            db.Avatar = model;
+            await _context.SaveChangesAsync();
+            return db.Avatar;
+        }
+
+        public async Task<ContactsViewModel> UpdateContactsAsync(string id, ContactsViewModel moedl)
+        {
+            var m = await 
+                _context.Members.FirstOrDefaultAsync(
+                    member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
+            foreach (var contact in moedl.Contacts)
+            {
+                if (contact.Id==0)
+                {
+                    m.MemberContacts.Add(contact);
+                }
+                else
+                {
+                    var c = _context.Contacts.Find(contact.Id);
+                    if (c!=null)
+                    {
+                        c = contact;
+                    }
+                }
+            }
+            await _context.SaveChangesAsync();
+            var result = new ContactsViewModel
+            {
+                Contacts = m.MemberContacts.ToList()
+            };
+            return result;
         }
 
         public async Task<Member> UpdateMemberAsync(Member member)

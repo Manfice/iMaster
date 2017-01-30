@@ -388,6 +388,7 @@
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <None Include="Properties\PublishProfiles\Web20161223024742 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
+    <Content Include="MasterUploads\de732211-d2f6-4cfb-98b9-1b019f01c80e\avatar-de732211-d2f6-4cfb-98b9-1b019f01c80e.png" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />

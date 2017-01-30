@@ -22,20 +22,32 @@
         });
     }
 
-    var uploadAvatar = function(data) {
+    var uploadAvatar = function(data,callback) {
         $.ajax({
             type: "POST",
             url: baseUrl + "/UploadAvatar",
             data: data,
+            processData: false,
+            contentType: false,
             success: function(result) {
-                alert("Send");
+                callback(result);
             }
         });
     }
-
+    var updateContacts = function (data) {
+        $.ajax({
+            url: baseUrl + "/UpdateContacts",
+            type: "POST",
+            contentType: 'application/json',
+            data: ko.toJSON(data),
+            success: function(result) {
+                alert(ko.toJSON(result));
+            }
+        });
+    }
     return {
         getMasterPersonalInfo: getMasterPersonalInfo,
         updatePublicMasterInfo: updatePublicMasterInfo,
-        uploadAvatar: uploadAvatar
+        uploadAvatar: uploadAvatar, updateContacts: updateContacts
     }
 };

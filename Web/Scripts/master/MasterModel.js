@@ -12,7 +12,7 @@
     var model = {
         menu: ko.observable("settings"),
         settings: {
-            tab: ko.observable("avas"),
+            tab: ko.observable("contacts"),
             publicInfo: {
                 Id: ko.observable(),
                 Nikname: ko.observable("Vasia"),
@@ -43,16 +43,20 @@
     var isActiveTab = function(view) {
         return model.settings.tab() === view;
     }
-    var getPublicInfoCallback = function(data) {
+    var getPublicInfoCallback = function (data) {
+        
         var pi = model.settings.publicInfo;
-        pi.Id(data.Id);
-        pi.Nikname(data.Nikname);
-        pi.Country(data.Country);
-        pi.City(data.City);
-        pi.AboutMe(data.AboutMe);
-        pi.Facebook(data.Facebook);
-        pi.Vkontakte(data.Vkontakte);
-        pi.Instagram(data.Instagram);
+        pi.Id(data.PublicMasterInfo.Id);
+        pi.Nikname(data.PublicMasterInfo.Nikname);
+        pi.Country(data.PublicMasterInfo.Country);
+        pi.City(data.PublicMasterInfo.City);
+        pi.AboutMe(data.PublicMasterInfo.AboutMe);
+        pi.Facebook(data.PublicMasterInfo.Facebook);
+        pi.Vkontakte(data.PublicMasterInfo.Vkontakte);
+        pi.Instagram(data.PublicMasterInfo.Instagram);
+        if (data.Avatar.Path) {
+            model.settings.avatar(data.Avatar.Path);
+        }
     }
     var retrievePublicInfo = function() {
         client.getMasterPersonalInfo(getPublicInfoCallback);
@@ -66,8 +70,32 @@
     }
 
     var addContact = function(t) {
-        model.settings.contacts.push({ Id: null, Title: ko.observable(t), Value: null, display: "NEW" });
+        model.settings.contacts.push({ Id: ko.observable(null), Title: ko.observable(t), Value: ko.observable(null), display: "NEW" });
 
+    }
+    var updateContacts = function () {
+        var c = model.settings.contacts();
+        var contacts = [];
+        var contact = function(data) {
+            this.Id = data.Id;
+            this.Title = data.Title;
+            this.Value = data.Value;
+        }
+        c.forEach(function (ct) {
+
+            if (ct.Value()) {
+                contacts.push(new contact(ct));
+            } else {
+                model.settings.contacts.remove(ct);
+            }
+        });
+        client.updateContacts(model.settings.contacts);
+
+    };
+    var removeContact = function (c) {
+        if (!c.Id()) {
+            model.settings.contacts.remove(c);
+        }
     }
     /*Croppie image block*/
     var $cropImage;
@@ -79,7 +107,8 @@
             reader.onload = function (e) {
                 $(".uploadImage").addClass("ready");
                 $cropImage.croppie("bind", {
-                    url: e.target.result
+                    url: e.target.result,
+                    orientation: 1
                 });
             };
             reader.readAsDataURL(input.files[0]);
@@ -87,7 +116,6 @@
             alert("Browser error 400");
         }
     }
-
     var croppieInit = function() {
         $cropImage = $("#uploadBlock").croppie({
             viewport: {
@@ -99,20 +127,32 @@
             boundary: {
                 width: 300,
                 height:300
-            }
+            },
+            enableOrientation: true
+
         });
     }
 
     $("#upload").on("change", function() {
         readFile(this);
     });
+    var uploadAvatarCallback = function (data) {
+        model.settings.avatar(data.Path);
+        fadeUpDownStatus();
+    }
 
+    var uplAvatar = function(data) {
+        var fd = new FormData();
+        fd.append("avatar", data, "avatar.png");
+        client.uploadAvatar(fd, uploadAvatarCallback);
+    }
     $("#uploadResult").on("click", function(ev) {
         $cropImage.croppie("result", {
-            type: "canvas",
-            size:"original"
+            type: "blob",
+            size:"viewport"
         }).then(function (dt) {
-            model.settings.avatar(dt);
+            model.settings.avatar(null);
+            uplAvatar(dt);
         });
     });
 
@@ -122,8 +162,8 @@
         croppieInit();
         ko.applyBindings(model, document.getElementById("masterPage"));
     }
-
     $(init);
+
     /*Return*/
     return {
         setView: setView,
@@ -132,7 +172,9 @@
         isActiveTab: isActiveTab,
         submitPublic: submitPublic,
         fadeUpDownStatus: fadeUpDownStatus,
-        addContact: addContact,
+        addContact: addContact, $cropImage: $cropImage,
+        updateContacts: updateContacts,
+        removeContact: removeContact
     }
 }();
 

@@ -5,7 +5,7 @@
 }
 @section link
 {
-    <link rel="Stylesheet" type="text/css" href="https://t4t5.github.io/sweetalert/dist/sweetalert.css" />
+    @*<link rel="Stylesheet" type="text/css" href="https://t4t5.github.io/sweetalert/dist/sweetalert.css" />*@
 <link href="~/Content/croppie.css" rel="stylesheet" />
 }
 
@@ -21,65 +21,4 @@
 
 <div id="result"></div>
 
-@section scripts
-{
-    <script src="~/Scripts/croppie.js"></script>
-    <script src="https://t4t5.github.io/sweetalert/dist/sweetalert-dev.js"></script>
-    <script>
-        $(document).ready(function () {
-            var vanillaResult = document.querySelector('.vanilla-result'),
-  vanillaSave = document.querySelector('.vanilla-save'),
-  vanillaRotate = document.querySelector('.vanilla-rotate');
-
-            function demoVanilla() {
-                var vanilla = new Croppie(document.getElementById('vanilla-demo'), {
-                    viewport: {
-                        width: 100,
-                        height: 100
-                    },
-                    boundary: {
-                        width: 300,
-                        height: 300
-                    },
-                    enableOrientation: true
-                });
-                vanilla.bind({
-                    url: '@Url.Content("/Content/img/backgrounds/kuznica-molot-nakovalnya-1920.jpg")',
-                    orientation: 1
-                });
-                vanillaResult.addEventListener('click', function () {
-                    vanilla.result('canvas').then(resultVanilla);
-                });
-                vanillaSave.addEventListener('click', function () {
-                    vanilla.result('canvas').then(saveVanilla);
-                });
-                vanillaRotate.addEventListener('click', function () {
-                    vanilla.rotate(parseInt($(this).data('deg')));
-                });
-            }
-
-            function resultVanilla(result) {
-                swal({
-                    title: '',
-                    html: true,
-                    text: '<img src="' + result + '" />',
-                    allowOutsideClick: true
-                });
-            }
-
-            function saveVanilla(result) {
-                swal({
-                    title: '',
-                    html: true,
-                    text: '<a id="save" href="' + result + '" download="result"><img src="' + result + '" /><br><button>Download</button></a>',
-                    showConfirmButton: false,
-                    showCancelButton: true,
-                    allowOutsideClick: true,
-
-                });
-            }
-
-            demoVanilla();
-        });
-    </script>
 }

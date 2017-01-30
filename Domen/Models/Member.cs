@@ -33,6 +33,10 @@ namespace Domen.Models
 
     }
 
+    public class ContactsViewModel
+    {
+        public List<Contact> Contacts { get; set; }
+    }
     public class PublicMasterInfo
     {
         public int Id { get; set; }

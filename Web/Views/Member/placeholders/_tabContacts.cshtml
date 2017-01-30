@@ -1,34 +1,37 @@
-﻿<ul class="contactsTypes" data-bind="visible:settings.contacts().length<10">
-    <li data-bind="click:MasterModel.addContact.bind($data,'Телефон')"><img alt="" src="/Content/img/msng/cellphone.png" title="Телефон"/></li>
-    <li data-bind="click:MasterModel.addContact.bind($data,'E-mail')"><img alt="" src="/Content/img/msng/mail.png" title="Электронная почта"/></li>
-    <li data-bind="click:MasterModel.addContact.bind($data,'Skype')"><img alt="" src="/Content/img/msng/sk.png" title="Skype"/></li>
-    <li data-bind="click:MasterModel.addContact.bind($data,'What`s Up')"><img alt="" src="/Content/img/msng/wa64.png" title="What`s up"/></li>
-    <li data-bind="click:MasterModel.addContact.bind($data,'Viber')"><img alt="" src="/Content/img/msng/viber.png" title="Viber"/></li>
-    <li data-bind="click:MasterModel.addContact.bind($data,'Telegram')"><img alt="" src="/Content/img/msng/Telegram.png" title="Telegram"/></li>
-    <li data-bind="click:MasterModel.addContact.bind($data,'Офис')"><img alt="" src="/Content/img/msng/hs64.png" title="Адрес офиса/магазина"/></li>
-</ul>
-<h2 class="contactsConstraints" data-bind="visible:settings.contacts().length>9">У вас максимальное число контактов</h2>
-<table class="tContacts">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Type</th>
-        <th>Contact</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody data-bind="foreach:settings.contacts">
-    <tr data-bind="ifnot:display==='NEW'">
-        <td data-bind="text:$index()+1"></td>
-        <td data-bind="text:Title"></td>
-        <td data-bind="text:Value"></td>
-        <td></td>
-    </tr>
-    <tr data-bind="if:display==='NEW'">
-        <td data-bind="text:$index()+1"></td>
-        <td data-bind="text:Title"></td>
-        <td><input data-bind="value:Value"/></td>
-        <td>Save</td>
-    </tr>
-    </tbody>
-</table>
+﻿<div class="contactsList">
+    <ul class="contactsTypes" data-bind="visible:settings.contacts().length<10">
+        <li data-bind="click:MasterModel.addContact.bind($data,'Телефон')"><img alt="" src="/Content/img/msng/cellphone.png" title="Телефон" /></li>
+        <li data-bind="click:MasterModel.addContact.bind($data,'E-mail')"><img alt="" src="/Content/img/msng/mail.png" title="Электронная почта" /></li>
+        <li data-bind="click:MasterModel.addContact.bind($data,'Skype')"><img alt="" src="/Content/img/msng/sk.png" title="Skype" /></li>
+        <li data-bind="click:MasterModel.addContact.bind($data,'What`s Up')"><img alt="" src="/Content/img/msng/wa64.png" title="What`s up" /></li>
+        <li data-bind="click:MasterModel.addContact.bind($data,'Viber')"><img alt="" src="/Content/img/msng/viber.png" title="Viber" /></li>
+        <li data-bind="click:MasterModel.addContact.bind($data,'Telegram')"><img alt="" src="/Content/img/msng/Telegram.png" title="Telegram" /></li>
+        <li data-bind="click:MasterModel.addContact.bind($data,'Офис')"><img alt="" src="/Content/img/msng/hs64.png" title="Адрес офиса/магазина" /></li>
+    </ul>
+    <h2 class="contactsConstraints" data-bind="visible:settings.contacts().length>9">У вас максимальное число контактов</h2>
+    <table class="tContacts">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:settings.contacts">
+            <tr data-bind="ifnot:display==='NEW'">
+                <td data-bind="text:$index()+1"></td>
+                <td data-bind="text:Title"></td>
+                <td data-bind="text:Value"></td>
+                <td></td>
+            </tr>
+            <tr data-bind="if:display==='NEW'">
+                <td data-bind="text:$index()+1"></td>
+                <td data-bind="text:Title"></td>
+                <td><input data-bind="value:Value" /></td>
+                <td><a class="btnDanger" data-bind="click:MasterModel.removeContact">Удалить</a></td>
+            </tr>
+        </tbody>
+    </table>
+<a class="btnSuccess" data-bind="click:MasterModel.updateContacts">Сохранить</a>    
+</div>

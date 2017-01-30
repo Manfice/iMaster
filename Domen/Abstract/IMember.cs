@@ -17,5 +17,9 @@ namespace Domen.Abstract
         Task<PublicMasterInfo> GetPublicMasterInfoAsync(string id);
         PublicMasterInfo UpdatePublicMasterInfo(PublicMasterInfo model);
         Task<PublicMasterInfo> UpdatePublicMasterInfoAsync(PublicMasterInfo model);
+        Avatar SaveAvatar(string id,Avatar model);
+        Task<Avatar> SaveAvatarAsync(string id, Avatar model);
+        string GetAvatarFilePath(string id);
+        Task<ContactsViewModel> UpdateContactsAsync(string id, ContactsViewModel moedl);
     }
 }
