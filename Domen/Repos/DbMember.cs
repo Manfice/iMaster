@@ -15,6 +15,23 @@ namespace Domen.Repos
 
         public IEnumerable<Member> GetMembers => _context.Members;
 
+        public async Task<ContactsViewModel> DeleteContact(int id, string userId)
+        {
+            var s = _context.Members.FirstOrDefault(member => member.UserId.Equals(userId, StringComparison.CurrentCultureIgnoreCase));
+            if (s==null)
+            {
+                return null;
+            }
+            var c = await _context.Contacts.FindAsync(id);
+            if (c==null)
+            {
+                return null;
+            }
+            _context.Contacts.Remove(c);
+            await _context.SaveChangesAsync();
+            return new ContactsViewModel {Contacts = s.MemberContacts.ToList()};
+        }
+
         public Task<Member> DeleteMemberAsync(int id)
         {
             throw new NotImplementedException();
@@ -108,10 +125,9 @@ namespace Domen.Repos
                 else
                 {
                     var c = _context.Contacts.Find(contact.Id);
-                    if (c!=null)
-                    {
-                        c = contact;
-                    }
+                    if (c == null) continue;
+                    c.Value = contact.Value;
+                    _context.SaveChanges();
                 }
             }
             await _context.SaveChangesAsync();

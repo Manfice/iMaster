@@ -34,20 +34,30 @@
             }
         });
     }
-    var updateContacts = function (data) {
+    var updateContacts = function (data, callback) {
         $.ajax({
             url: baseUrl + "/UpdateContacts",
             type: "POST",
-            contentType: 'application/json',
+            contentType: "application/json",
             data: ko.toJSON(data),
             success: function(result) {
-                alert(ko.toJSON(result));
+                callback(result);
+            }
+        });
+    }
+    var removeContact = function(data, callback) {
+        $.ajax({
+            url: baseUrl + "/DeleteContact/"+data,
+            type: "POST",
+            success: function (result) {
+                callback(result);
             }
         });
     }
     return {
         getMasterPersonalInfo: getMasterPersonalInfo,
         updatePublicMasterInfo: updatePublicMasterInfo,
-        uploadAvatar: uploadAvatar, updateContacts: updateContacts
+        uploadAvatar: uploadAvatar, updateContacts: updateContacts,
+        removeContact: removeContact
     }
 };

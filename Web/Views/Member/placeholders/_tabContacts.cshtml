@@ -25,7 +25,7 @@
                 <td data-bind="text:data.Value"></td>
                 <td>
                      <a class="btnSuccess" data-bind="click:MasterModel.editContact">Редактировать</a>
-                    <a class="btnDanger">Удалить</a>
+                    <a class="btnDanger" data-bind="click:MasterModel.removeContact">Удалить</a>
                 </td>
             </tr>
             <tr data-bind="if:display()==='NEW'">

@@ -112,7 +112,22 @@ namespace Web.Controllers
 
             var user = User.Identity.GetUserId();
             var result = await _member.UpdateContactsAsync(user, new ContactsViewModel {Contacts = model});
-            return Ok(result.Contacts);
+            return Ok(result.Contacts.Select(c=>new {c.Id, c.Title, c.Value}));
+        }
+        [HttpPost]
+        public async Task<IHttpActionResult> DeleteContact(int id=0)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return (IHttpActionResult) BadRequest();
+            }
+            if (id==0)
+            {
+                return (IHttpActionResult) BadRequest();
+            }
+            var user = User.Identity.GetUserId();
+            var result = await _member.DeleteContact(id,user);
+            return Ok(result.Contacts.Select(c => new { c.Id, c.Title, c.Value }));
         } 
     }
 }

@@ -89,8 +89,15 @@
         model.settings.contacts.push(new Contact(itm, "NEW"));
 
     }
+    var updateContactsCallback = function (c) {
+        model.settings.contacts.removeAll();
+        if (!c) return;
+        c.forEach(function(cont) {
+            model.settings.contacts.push(new Contact(cont, "OLD"));
+        });
+        fadeUpDownStatus();
+    }
     var updateContacts = function () {
-        alert("WOW");
         var c = model.settings.contacts();
         var contacts = [];
         c.forEach(function (ct) {
@@ -100,15 +107,14 @@
                 contacts.push(ct.data);
             }
         });
-        console.log(ko.toJSON(contacts));
-        client.updateContacts(contacts);
+        client.updateContacts(contacts, updateContactsCallback);
 
     };
     var removeContact = function (c) {
-        if (!c.Id()) {
+        if (!c.data.Id()) {
             model.settings.contacts.remove(c);
         } else {
-            alert("WOW");
+            client.removeContact(c.data.Id(), updateContactsCallback);
         }
     }
 

@@ -21,5 +21,6 @@ namespace Domen.Abstract
         Task<Avatar> SaveAvatarAsync(string id, Avatar model);
         string GetAvatarFilePath(string id);
         Task<ContactsViewModel> UpdateContactsAsync(string id, ContactsViewModel moedl);
+        Task<ContactsViewModel> DeleteContact(int id, string userId);
     }
 }
