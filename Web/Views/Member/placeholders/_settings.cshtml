@@ -9,6 +9,7 @@
                 <li data-bind="click:MasterModel.setTab.bind($data,'about'),css:{active:MasterModel.isActiveTab('about')}">О себе</li>
                 <li data-bind="click:MasterModel.setTab.bind($data,'contacts'),css:{active:MasterModel.isActiveTab('contacts')}">Контакты</li>
                 <li data-bind="click:MasterModel.setTab.bind($data,'avas'),css:{active:MasterModel.isActiveTab('avas')}">Аватар</li>
+                <li data-bind="click:MasterModel.setTab.bind($data,'skills'),css:{active:MasterModel.isActiveTab('skills')}">Деятельность</li>
                 <li data-bind="click:MasterModel.setTab.bind($data,'requisites'),css:{active:MasterModel.isActiveTab('requisites')}">Реквизиты</li>
                 <li data-bind="click:MasterModel.setTab.bind($data,'accounts'),css:{active:MasterModel.isActiveTab('accounts')}">Мой сайт</li>
             </ul>
@@ -23,8 +24,11 @@
             <div data-bind="visible:MasterModel.isActiveTab('avas')" style="display: none">
                 @Html.Partial("placeholders/_tabAvatar")
             </div>
+            <div data-bind="visible:MasterModel.isActiveTab('skills')" style="display: none">
+                @Html.Partial("placeholders/_tabMaster")
+            </div>
             <div data-bind="visible:MasterModel.isActiveTab('requisites')" style="display: none">
-                @Html.Partial("placeholders/_tabAvatar")
+                @Html.Partial("placeholders/_tabRequisites")
             </div>
         </div>
     </div>

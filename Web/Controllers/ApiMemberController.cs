@@ -34,7 +34,12 @@ namespace Web.Controllers
         {
             return Ok(_member.GetMemberByUserId(User.Identity.GetUserId()));
         }
-
+        [HttpGet]
+        public IHttpActionResult GetSkills()
+        {
+            var d = _member.GetSkillsModel();
+            return Ok(_member.GetSkillsModel());
+        }
         public async Task<IHttpActionResult> UpadteMemberInfo(SaveMemberPrimeData member)
         {
             var d = Request.Content;
@@ -128,6 +133,31 @@ namespace Web.Controllers
             var user = User.Identity.GetUserId();
             var result = await _member.DeleteContact(id,user);
             return Ok(result.Contacts.Select(c => new { c.Id, c.Title, c.Value }));
-        } 
+        }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> SetMySkill(int id=0)
+        {
+            var u = User.Identity.GetUserId();
+
+            if (string.IsNullOrEmpty(u) || id==0)
+            {
+                return (IHttpActionResult) BadRequest();
+            }
+            var r = await _member.SetSkills(u, id);
+            return Ok(r);
+        }
+        [HttpPost]
+        public async Task<IHttpActionResult> RemoveMySkill(int id)
+        {
+            var u = User.Identity.GetUserId();
+
+            if (string.IsNullOrEmpty(u) || id == 0)
+            {
+                return (IHttpActionResult)BadRequest();
+            }
+            var r = await _member.RemoveSkills(u, id);
+            return Ok(r);
+        }
     }
 }

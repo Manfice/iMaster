@@ -16,7 +16,7 @@ namespace Domen.Models
         public string Email { get; set; }
         public virtual Avatar Avatar { get; set; }
         public virtual ICollection<Contact> MemberContacts { get; set; }
-        public virtual Master Master { get; set; }
+        public virtual ICollection<Master> Skills { get; set; }
         public virtual ICollection<Brand> Brands { get; set; }
         public virtual PublicMasterInfo PublicMasterInfo { get; set; }
     }
@@ -36,6 +36,12 @@ namespace Domen.Models
     public class ContactsViewModel
     {
         public List<Contact> Contacts { get; set; }
+    }
+
+    public class SkillViewModel
+    {
+        public IEnumerable<Specialists> Specialistses { get; set; }
+        public IEnumerable<Master> Masters { get; set; }
     }
     public class PublicMasterInfo
     {
@@ -64,6 +70,14 @@ namespace Domen.Models
         public string FullPath { get; set; }
     }
 
+    public class Requisits
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Inn { get; set; }
+        public string Kpp { get; set; }
+        public string FullReq { get; set; }
+    }
     public class Brand
     {
         public int Id { get; set; }

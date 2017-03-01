@@ -233,6 +233,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApiGoodsController.cs" />
     <Compile Include="Controllers\ApiMemberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -469,6 +470,8 @@
     <Content Include="Views\Member\placeholders\_tabContacts.cshtml" />
     <Content Include="Views\Member\placeholders\_tabAvatar.cshtml" />
     <Content Include="Views\Member\CropieTest.cshtml" />
+    <Content Include="Views\Member\placeholders\_tabMaster.cshtml" />
+    <Content Include="Views\Member\placeholders\_tabRequisites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

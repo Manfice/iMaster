@@ -31,6 +31,27 @@
         }
     });
 
+    //var canvas = document.getElementById("chart"),
+    //    c = canvas.getContext("2d");
+    //c.lineWidth = 0.5;
+    //for (var i = 0; i <= 50; i++) {
+    //    c.lineTo(0, i*10);
+    //    c.lineTo(1500, i * 10);
+    //    c.moveTo(0, i * 10);
+    //    setInterval(50);
+    //};
+    //for (var y = 0; y <= 150; y++) {
+    //    c.lineTo(y*10, 0);
+    //    c.lineTo(y*10, 500);
+    //    c.moveTo(y*10, 0);
+    //};
+    //c.moveTo(0, 250);
+    //for (var j = 0; j <= 1500; j++) {
+    //    c.lineTo(j,j*0.75);
+    //}
+    //c.stroke();
+    //c.strokeStyle = "#ff0000";
+
      ymaps.ready(function () {
         ymaps.geolocation.get({
             // Выставляем опцию для определения положения по ip

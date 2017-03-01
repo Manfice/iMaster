@@ -1,7 +1,6 @@
 ﻿.masterpageWrapper {
     width: 100%;
     flex: 1 0 auto;
-    height: 50px;
     position: relative;
     display: flex;
     flex-flow: row nowrap;
@@ -12,8 +11,7 @@
 .masterpageLeftMenuWrapper {
     width: 250px;
     background-color: black;
-    height: auto;
-    flex: 0 0 auto;
+    flex: 0 0 auto; 
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
@@ -52,10 +50,35 @@
     font-size: 14pt;
     background-color: lightblue;
 }
-.avatarWrapper img {
+
+.avatarWrapper {
     width: 200px;
-    margin: 20px 0;
+    margin: 20px;
+    position: relative;
+    background-color: transparent;
 }
+/*.avatarWrapper:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 0;
+    border-left: 100px solid green;
+    border-right: 100px solid green;
+    border-bottom: 50px solid transparent;
+}
+.avatarWrapper:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 0;
+    border-left: 100px solid green;
+    border-right: 100px solid green;
+    border-top: 50px solid transparent; 
+}*/
 .menuList ul {
     width: 100%;
     padding: 0;
@@ -91,6 +114,10 @@
     flex: 1 0 auto;
     background-color: pink;
     padding: 20px;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    
 }
 .placeholder {
     display: flex;
@@ -120,17 +147,15 @@
     flex: 0 0 auto;
     display: flex;
     flex-flow: row nowrap;
-
 }
 .tabMenu ul li {
+    flex: 1 0 auto;
     display: block;
     font-size: 14pt;
     color: purple;
     padding: 5px 15px;
     background-color: whitesmoke;
     cursor: pointer;
-    max-width: 200px;
-    width: 100%;
 }
 .tabMenu ul li.active, .tabMenu ul li:hover {
     background-color: purple;
@@ -313,4 +338,63 @@ input[type="file"] {
 td:last-child a.btnSuccess, td:last-child a.btnDanger {
     flex: 1 0 auto;
     text-align: center;
+}
+.skillsBlock {
+    flex: 1 0 auto;
+    width: 100%;
+    padding: 20px 0;
+}
+.skillsBlock h2 {
+    color: purple;
+    font-size: 14pt;
+    display: block;
+    padding: 0 20px;
+}
+.listsWrapper {
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.listsWrapper ul {
+    width: 250px;
+    border: solid 1px gray;
+    background-color: white;
+    color: purple;
+    margin: 0 10px;
+}
+.listsWrapper ul li {
+    display: flex;
+    cursor: pointer;
+}
+.listsWrapper ul li p {
+    display: block;
+    margin: 0 10px;
+}
+.listsWrapper ul li:hover, .listsWrapper ul li.active {
+    background-color: purple;
+    color: white;
+}
+.skillList li {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.skillList li input[type="checkbox"] {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 7px;
+}
+.mySkills {
+    display: flex;
+    flex-flow: row nowrap;
+    color: purple;
+    margin: 0 20px;
+    align-items: center;
+
+}
+.mySkills p {
+    display: block;
+    margin: 5px 10px;
 }

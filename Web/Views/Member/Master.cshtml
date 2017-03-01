@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="avatarWrapper" style="display: none" data-bind="visible:settings.avatar()">
-                <img id="avatar" alt="manfice" data-bind="attr:{src:settings.avatar}"/>
+                <img id="avatar" alt="manfice" data-bind="attr:{src:settings.avatar()? 'https://yamaster.info/'+settings.avatar():''}"/>
             </div>
             <div class="titleZone">
                 <h3 data-bind="text:settings.publicInfo.Nikname">Manfice</h3>

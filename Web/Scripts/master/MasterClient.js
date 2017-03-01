@@ -54,10 +54,38 @@
             }
         });
     }
+    var getSkills = function(callback) {
+        $.ajax({
+            type: "GET",
+            url: baseUrl + "/GetSkills",
+            success: function(data) {
+                callback(data);
+            }
+        });
+    }
+    var setSkill = function(data, callback) {
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "/SetMySkill/" + data,
+            success: function(result) {
+                callback(result);
+            }
+        });
+    }
+    var removeSkill = function (data, callback) {
+        $.ajax({
+            type: "POST",
+            url: baseUrl + "/RemoveMySkill/" + data,
+            success: function (result) {
+                callback(result);
+            }
+        });
+    }
     return {
         getMasterPersonalInfo: getMasterPersonalInfo,
         updatePublicMasterInfo: updatePublicMasterInfo,
         uploadAvatar: uploadAvatar, updateContacts: updateContacts,
-        removeContact: removeContact
+        removeContact: removeContact, getSkills: getSkills, setSkill: setSkill,
+        removeSkill: removeSkill
     }
 };

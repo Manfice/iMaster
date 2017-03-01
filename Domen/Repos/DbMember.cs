@@ -83,6 +83,31 @@ namespace Domen.Repos
 
         }
 
+        public SkillViewModel GetSkillsModel()
+        {
+            return new SkillViewModel
+            {
+                Specialistses = _context.Specialists.ToList(),
+                Masters = _context.Masters.ToList()
+            };
+        }
+
+        public async Task<IEnumerable<Master>> RemoveSkills(string user, int skill)
+        {
+            var master = _context.Members.FirstOrDefault(m => m.UserId.Equals(user, StringComparison.CurrentCultureIgnoreCase));
+            var s = _context.Masters.Find(skill);
+            if (master != null && s != null)
+            {
+                master.Skills.Remove(s);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                return null;
+            }
+            return master.Skills.ToList();
+        }
+
         public Avatar SaveAvatar(string id, Avatar model)
         {
             var db = _context.Members.FirstOrDefault(member => member.UserId.Equals(id, StringComparison.CurrentCultureIgnoreCase));
@@ -109,6 +134,23 @@ namespace Domen.Repos
             db.Avatar = model;
             await _context.SaveChangesAsync();
             return db.Avatar;
+        }
+
+        public async Task<IEnumerable<Master>> SetSkills(string user, int skill)
+        {
+            var master = _context.Members.FirstOrDefault(m => m.UserId.Equals(user, StringComparison.CurrentCultureIgnoreCase));
+            var s = _context.Masters.Find(skill);
+            if (master != null && s != null)
+            {
+                if (master.Skills.Any(sk => sk.Id == skill)) return master.Skills.ToList();
+                master.Skills.Add(s);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                return null;
+            }
+            return master.Skills.ToList();
         }
 
         public async Task<ContactsViewModel> UpdateContactsAsync(string id, ContactsViewModel moedl)

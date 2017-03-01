@@ -1,0 +1,24 @@
+﻿<div class="skillsBlock">
+    <h2>Укажите свою специализацию:</h2>
+    <div data-bind="foreach:settings.skills.Masters">
+        <div class="mySkills" data-bind="if:Selected">
+            <span class="fa fa-dot-circle-o"></span>
+            <p data-bind="text:data.SpecTitle"></p>
+            <span class="fa fa-angle-double-right"></span>
+            <p data-bind="text:data.Title"></p>
+        </div>
+    </div>
+    <div class="listsWrapper">
+        <ul data-bind="foreach:settings.skills.Specialistses">
+            <li data-bind="click:MasterModel.setSpec">
+                <p  data-bind="text:data.Title"></p>
+            </li>
+        </ul>
+        <ul data-bind="foreach:settings.skills.FilteredMasters" class="skillList">
+            <li data-bind="css:{active:Selected}">
+                <input type="checkbox" data-bind="checked:Selected"/>
+                <p data-bind="text:data.Title"></p>
+            </li>
+        </ul>
+    </div>
+</div>

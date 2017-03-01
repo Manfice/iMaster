@@ -22,5 +22,8 @@ namespace Domen.Abstract
         string GetAvatarFilePath(string id);
         Task<ContactsViewModel> UpdateContactsAsync(string id, ContactsViewModel moedl);
         Task<ContactsViewModel> DeleteContact(int id, string userId);
+        SkillViewModel GetSkillsModel();
+        Task<IEnumerable<Master>> SetSkills(string user, int skill);
+        Task<IEnumerable<Master>> RemoveSkills(string user, int skill);
     }
 }
